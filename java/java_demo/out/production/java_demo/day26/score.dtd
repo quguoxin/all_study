@@ -1,0 +1,7 @@
+<!ELEMENT score (ID*)>
+<!ELEMENT ID (姓名,课程,成绩+)>
+<!ATTLIST ID id CDATA>
+<!ELEMENT 姓名  (#PCDATA)>
+<!ELEMENT 课程  (#PCDATA)>
+<!ELEMENT 成绩  (#PCDATA)>
+

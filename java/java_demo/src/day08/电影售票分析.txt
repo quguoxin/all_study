@@ -1,0 +1,31 @@
+~~~票 Ticket
+属性：价格price，日期date，电影名称filmName，座位号seatNum，放映厅videoHall，电影院名称cinema......
+方法：显示票信息
+~~~放映厅仓库videoHallStore
+属性：剩余数量(remainNum)，已售数量(soldNum)，电影院院厅的售票仓库(int[][] stores),放映厅videoHall
+方法：显示售票情况(showTicketSoldStatus())
+~~~零食 Snacks
+属性：名称，价格，零食库，零食库存，进货价格，......
+方法：
+~~~积分Score
+属性：
+方法：
+~~~会员用户 VipUser
+属性：登录名loginName,登录密码password,姓名name,积分scores,余额balance,卡号cardNo,手机号phone,性别sex,出生日期birthday......
+方法：显示余额,显示积分,
+
+~~~电影系统 FilmSystem
+属性：菜单选择变量,会员用户对象,放映厅仓库对象，零食对象
+方法：(显示一级,显示二级,显示三级......,兑换积分,充值,买零食,买票,注册,登录,修改密码,)
+~~~~~~~~~~~~~~~~~~~~~~~~
+面向对象设计：
+1.找对象
+2.找出类
+3.找出类的属性
+4.找出类的方法
+5.编写类，封装属性
+6.编写类的构造方法：无参和有参
+7.按照分析出的类来完善系统开发
+
+
+

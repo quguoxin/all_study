@@ -1,0 +1,17 @@
+﻿~~~~龙昌银行
+》》登录  boolean login(String cardno,String pwd);
+账户(卡号)：
+密码：
+
+》》主界面
+1.存钱  int saveMoney(String cardno,double money);
+2.取钱 int giveMoney(String cardno,double money);
+3.转账 transferMoney(String from,String to,double money);
+4.查询余额 void showBalance(String cardno);
+
+表信息：
+account(id,cardno,pwd,balance,username)
+注意：自己插入2条账户信息
+1.使用a账户转给b账户1000元
+2.使用b账户登录进行余额查询，可以看到金额增加
+

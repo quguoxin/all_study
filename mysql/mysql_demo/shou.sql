@@ -1,0 +1,21 @@
+
+CREATE DATABASE shop;
+DROP TABLE `bank`;
+CREATE TABLE IF NOT EXISTS bank(
+  id INT(11)  NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `name` VARCHAR(32) NOT NULL,
+  cash DECIMAL(9,2) NOT NULL
+)ENGINE=INNODB CHARSET=utf8;
+INSERT INTO `bank` (`name`,`cash`) VALUES('A',2000.00);
+INSERT INTO `bank` (`name`,`cash`) VALUES('B',10000.00);
+
+SET autocommit=0;
+START TRANSACTION;
+UPDATE `bank` SET `cash`=2000.00-500.00 WHERE `id`=1;
+UPDATE `bank` SET `cash`=10000.00+500.00 WHERE `id`=2;
+SELECT * FROM `bank`;
+ROLLBACK;
+-- commit;
+SET autocommit=1;
+
+SELECT * FROM `bank`;

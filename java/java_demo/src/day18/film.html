@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>${title}</title>
+		<style>
+			.film{
+				border: 1px solid gray;height: 375px;width: 330px;background-color: cornflowerblue;font-family: 楷体;
+			}
+			.film_title{
+				height: 50px;text-align: center;line-height: 50px;font-size: 26px;
+			}
+			.row{
+				height: 50px;
+				line-height: 50px;
+				font-size: 20px;
+				background-color: white;
+				border-radius: 30px;
+				width: 300px;
+				margin: 10px auto;
+				padding-left: 10px;
+			}
+			.row span{
+				color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="film">
+			<div class="film_title">中影星美电影票</div>
+			<div class="row">影厅：<span>${filmOffice}</span></div>
+			<div class="row">时间：<span>${time}</span></div>
+			<div class="row">影片：<span>${moviceName}</span></div>
+			<div class="row">座位：<span>${seatNo}</span></div>
+			<div class="row">票价：<span>${price}</span></div>
+			
+		</div>
+	</body>
+</html>

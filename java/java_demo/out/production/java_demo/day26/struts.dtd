@@ -1,0 +1,5 @@
+<!ELEMENT struts (action*)>
+<!ELEMENT action (result*)>
+<!ATTLIST action name CDATA #REQUIRED class CDATA #REQUIRED method CDATA #IMPLIED>
+<!ATTLIST result name CDATA #REQUIRED>
+<!ELEMENT result (#PCDATA)>

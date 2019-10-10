@@ -1,0 +1,11 @@
+<!DOCTYPE struts SYSTEM "struts.dtd">
+<struts>
+     <action name="login" class="com.longchang.www.action.LoginAction" method="login">
+         <result name="success">/success.jsp</result>
+         <result name="error">/error.jsp</result>
+     </action>
+     <action name="reg" class="com.longchang.www.action.RegAction">
+         <result name="success">/success.jsp</result>
+         <result name="error">/error.jsp</result>
+     </action>
+</struts>
