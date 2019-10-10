@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/style.css" />
+		<style>
+			*{
+				margin: 0px;
+				padding: 0px;
+			}
+			.inputs {
+				width: 130px;
+				height: 16px;
+				border: solid 1px #666666;
+				float: left;
+				margin-right: 5px;
+			}
+
+			.mid{
+				width: 1366px;
+				clear: both;
+			}
+			.table{
+				margin-left: 255px;
+				margin-top: 120px;
+				float: left;
+				width: 560px;
+			}
+			.right{
+				float: left;
+				margin-top: 50px;
+				
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			<div><img src="images/top.png"></div>
+			<div class="mid">
+			<div class="table">
+				<form action="success.html" method="get">
+				<table>
+					<tr>
+						<td align="right">用户名&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+						<td><input id="user" type="text" class="inputs" />
+							<div id="user_prompt"></div>
+						</td>
+					</tr>
+					<tr>
+						<td align="right">密码&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+						<td><input id="pwd" type="password" class="inputs" />
+							<div id="pwd_prompt"></div>
+						</td>
+					</tr>
+					<tr>
+						<td align="right">确认密码&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+						<td><input id="rePwd" type="password" class="inputs" />
+							<div id="rePwd_prompt"></div>
+						</td>
+					</tr>
+					<tr>
+						<td align="right">电子邮箱&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+						<td><input id="email" type="text" class="inputs" />
+							<div id="email_prompt"></div>
+						</td>
+					</tr>
+					<tr>
+						<td align="right">手机号码&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+						<td><input id="mobile" type="text" class="inputs" />
+							<div id="mobile_prompt"></div>
+						</td>
+					</tr>
+					<tr>
+						<td align="right">生日&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+						<td><input id="birthday" type="text" class="inputs" />
+							<div id="birthday_prompt"></div>
+						</td>
+					</tr>
+					<tr>
+						<td class="left">&nbsp;</td>
+						<td><input id="submitBtn" name="" type="button" style="background-image: url(images/login.jpg); width: 88px; height: 32px;" /></td>
+					</tr>
+				</table>
+				</form>
+			</div>
+			<div class="right"><img src="images/right.png"></div>
+			</div>
+			<div><img src="images/bottom.png" /> </div>
+			
+		</div>
+		
+		<script type="text/javascript" src="../js/jquery-1.11.1.min.js" ></script>
+		<script>
+			$(function(){
+				$("#submitBtn").click(function(){
+					if(ckUser()&&ckBirthday()&&ckEmail()&&ckMobile()&&ckPwd()&&ckRePwd()){
+						$("form").submit();						
+					}
+				});
+				//用户名
+				$("#user").focus(function(){
+					$("#user_prompt").removeClass("onError onCorrect").addClass("onShow").html("请输入用户名！");
+				});
+				$("#user").blur(function(){
+					ckUser();
+				});
+				function ckUser(){
+					var user_regExp=/^[a-zA-Z][a-zA-Z0-9]{3,15}$/gim;
+					var userValue=$("#user").val();
+					//非空
+					if(userValue==null||userValue==""){
+						$("#user_prompt").removeClass("onShow onCorrect").addClass("onError").html("用户名不能为空！");
+						return;//代码中断
+					}
+					//格式
+					if(!user_regExp.test($("#user").val())){
+						$("#user_prompt").removeClass("onCorrect onShow").addClass("onError").html("格式错误！");
+						return;
+					}
+					//验证通过提示
+					$("#user_prompt").removeClass("onShow onError").addClass("onCorrect").html("输入正确！");
+					return true;
+				}
+				
+				//密码
+				$("#pwd").focus(function(){
+					$("#pwd_prompt").removeClass("onError onCorrect").addClass("onShow").html("请输入密码！");
+				});
+				$("#pwd").blur(function(){
+					ckPwd();
+				});
+				function ckPwd(){
+					var pwd_regExp=/^[A-Za-z0-9]{4,10}$/gim;
+					var pwdValue=$("#pwd").val();
+					//非空
+					if(pwdValue==null||pwdValue==""){
+						$("#pwd_prompt").removeClass("onShow onCorrect").addClass("onError").html("密码不能为空！");
+						return;//代码中断
+					}
+					//格式
+					if(!pwd_regExp.test(pwdValue)){
+						$("#pwd_prompt").removeClass("onCorrect onShow").addClass("onError").html("格式错误！");
+						return;
+					}
+					//验证通过提示
+					$("#pwd_prompt").removeClass("onShow onError").addClass("onCorrect").html("输入正确！");
+					return true;
+				}
+				
+				//确认密码
+				$("#rePwd").focus(function(){
+					$("#repwd_prompt").removeClass("onError onCorrect").addClass("onShow").html("请再次输入密码！");
+				});
+				$("#rePwd").blur(function(){
+					ckRePwd();
+				});
+				function ckRePwd(){
+					var rePwdValue=$("#rePwd").val().toLowerCase();
+					//非空
+					if(rePwdValue==null||rePwdValue==""){
+						$("#rePwd_prompt").removeClass("onShow onCorrect").addClass("onError").html("密码不能为空！");
+						return;//代码中断
+					}
+					//格式
+					//1.与前面相同
+					if($("#rePwd").val()!=$("#pwd").val()){
+						$("#rePwd_prompt").removeClass("onShow onCorrect").addClass("onError").html("密码必须相同！");
+						return;
+					}
+					
+					//验证通过提示
+					$("#rePwd_prompt").removeClass("onShow onError").addClass("onCorrect").html("输入正确！");
+					return true;
+				}
+				
+				//电子邮箱
+				$("#email").focus(function(){
+					$("#email_prompt").removeClass("onError onCorrect").addClass("onShow").html("请输入邮箱！");
+				});
+				$("#email").blur(function(){
+					ckEmail();
+				});
+				function ckEmail(){
+					var emailValue=$("#email").val();
+					var email_regExp=/^\w+@\w+(\.[a-zA-Z]{2,3}){1,2}$/gim;
+					//非空
+					if(emailValue==null||emailValue==""){
+						$("#email_prompt").removeClass("onShow onCorrect").addClass("onError").html("邮箱不能为空！");
+						return;
+					}
+					//格式
+					if(!email_regExp.test(emailValue)){
+						$("#email_prompt").removeClass("onShow onCorrect").addClass("onError").html("格式错误！");
+						return;
+					}
+					//验证通过提示
+					$("#email_prompt").removeClass("onShow onError").addClass("onCorrect").html("输入正确！");
+					return true;
+				}
+				
+				//手机
+				$("#mobile").focus(function(){
+					$("#mobile_prompt").removeClass("onError onCorrect").addClass("onShow").html("请输入手机号！");
+				});
+				$("#mobile").blur(function(){
+					ckMobile();
+				});
+				function ckMobile(){
+					var mobileValue=$("#mobile").val();
+					var mobile_regExp=/^1[0-9]{10}$/gim;
+					//非空
+					if(mobileValue==null||mobileValue==""){
+						$("#mobile_prompt").removeClass("onShow onCorrect").addClass("onError").html("手机不能为空！");
+						return;//代码中断
+					}
+					//格式
+					//1.长度：11位数字
+					if(!mobile_regExp.test(mobileValue)){
+						$("#mobile_prompt").removeClass("onShow onCorrect").addClass("onError").html("手机号格式错误！");
+						return;
+					}
+					//验证通过提示
+					$("#mobile_prompt").removeClass("onShow onError").addClass("onCorrect").html("输入正确！");
+					return true;
+				}
+				
+				//生日
+				$("#birthday").focus(function(){
+					$("#birthday_prompt").removeClass("onError onCorrect").addClass("onShow").html("请输入生日！");
+				});
+				$("#birthday").blur(function(){
+					ckBirthday();
+				});
+				function ckBirthday(){
+					var birthdayValue=$("#birthday").val();
+					//1900-01-01   2009-12-31
+					var birthday_regExp=/^(19|20)(0|9)[0-9](\-)((0{0,1}[1-9])|(10)|(11)|(12))(\-)(((0|1|2|){0,1}[0-9])|(30)|(31))$/gim;
+					//非空
+					if(birthdayValue==null||birthdayValue==""){
+						$("#birthday_prompt").removeClass("onShow onCorrect").addClass("onError").html("生日不能为空！");
+						return;//代码中断
+					}
+					//格式
+					//1.长度：11位数字
+					if(!birthday_regExp.test(birthdayValue)){
+						$("#birthday_prompt").removeClass("onShow onCorrect").addClass("onError").html("生日格式错误！");
+						return;
+					}
+					
+					//验证通过提示
+					$("#birthday_prompt").removeClass("onShow onError").addClass("onCorrect").html("输入正确！");
+					return true;
+				}
+			})
+		</script>
+	</body>
+</html>

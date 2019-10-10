@@ -1,0 +1,258 @@
+.father{
+	border: 1px #E2E5DF solid;
+	border-bottom-color: 1px #008743 solid;
+	width: 980px;
+	height: 430px;
+	background-color: #FFFFFF;
+	padding: 0;
+	margin: 0 auto;
+}
+.son1{
+	
+	width: 930px;
+	height: 60px;
+	background-color: #FEFEFE;
+	padding: 0;
+	margin: 0px 22.5px 0px 22.5px;
+}
+.span{
+	margin: 20px 0px 18px 0px;
+	color: #008743;
+	font-size: 16px;
+	font-weight: bold;
+	float: left;
+}
+.select2{
+	width: 125px;
+	height: 25px;
+	margin: 28px 8px 0px 0px;
+	float: right;
+}
+.select1{
+	width: 87px;
+	height: 25px;
+	margin: 28px 0px 0px 0px;
+	float: right;
+}
+.line{
+	border: 1px red solid;
+	padding: 0;
+	margin: 0;
+}
+.son2{
+	width: 930px;
+	height: 60px;
+	background-color: #F3F3F3;
+	padding:0px;
+	margin: 15px 22.5px 18px 22.5px;
+	font-size: 16px;
+}
+.son2A{
+	float: left;
+	margin: 22px 0px 0px 233px;
+}
+.son2B{
+	float: left;
+	margin: 22px 0px 0px 273px;
+}
+.son2C{
+	float: left;
+	margin: 22px 0px 0px 46px;
+}
+.son2D{
+	float: left;
+	margin: 22px 0px 0px 73px;
+}
+.dingDan{
+	border: 1px #E2E5DF solid;
+	width: 930px;
+	height: 180px;
+	background-color: #FEFEFE;
+	margin: 15px 0px 0px 22.5px;
+	padding: 0;
+}
+.dingDanInFo{
+	width: 100%px;
+	height: 45px;
+	background-color: #E7F0E9;
+	padding:0px;
+	margin: 0px 0px 0px 0px;
+	font-size: medium;
+	line-height: 45px;
+	text-indent: 17px;
+}
+.ji{
+	border: 1px #E2E5DF solid;
+	width: 78px;
+	height: 78px;
+	background-color: #FEFEFE;
+	background-image: url(../imgs/myOrder/170508095120808_154370_300.jpg);
+	background-repeat: no-repeat;
+	background-size: 78px 78px;
+	padding:0px;
+	margin: 14px 0px 0px 14px;
+	float: left;
+}
+.jiKuai{
+	border: 1px #E2E5DF solid;
+	width: 78px;
+	height: 78px;
+	background-color: #FEFEFE;
+	background-image: url(../imgs/myOrder/9288713496666940_300.jpg);
+	background-repeat: no-repeat;
+	background-size: 78px 78px;
+	padding:0px;
+	margin: 14px 0px 0px 14px;
+	float: left;
+}
+.shuLiang{
+	padding:0px;
+	margin: 30px 0px 0px 10px;
+	float: left;
+}
+.jinE{
+	padding:0px;
+	margin: 50px 0px 0px 283px;
+	float: left;
+	color: #E7380F;
+	font-weight: bold;
+}
+.state{
+	padding:0px;
+	margin: 50px 0px 0px 55px;
+	float: left;
+}
+.pay{
+	border: 1px #E2E5DF solid;
+	color:#FFFFFF;
+	text-align: center;
+	line-height: 30px;
+	background-color: #E7380F;
+	width: 75px;
+	height: 28px;
+	padding:0px 0px 0px 0px;
+	margin: 5px 0px 0px 795px;
+}
+.modify{
+	border: 1px #E2E5DF solid;
+	color:#FFFFFF;
+	text-align: center;
+	line-height: 30px;
+	background-color: #E7380F;
+	width: 75px;
+	height: 28px;
+	padding:0px;
+	margin: 5px 0px 0px 795px;
+}
+.cancel{
+	width: 64px;
+	height: 20px;
+	padding:0px;
+	margin: 5px 0px 0px 802px;
+}
+.view{
+	width: 64px;
+	height: 20px;
+	padding:0px;
+	margin: 5px 0px 0px 802px;
+}
+.jump{
+	
+	width: 65x;
+	height: 30px;
+	background-color: #FFFFFF;
+	padding: 0px 0px 0px 0px;
+	margin: 60px 0px 0px 0px;
+}
+.up{
+	border: 1px #CBCBCB solid;
+	width: 65px;
+	height: 30px;
+	background-color: #FFFFFF;
+	float: right;
+	padding: 0px 0px 0px 0px;
+	margin: 0px 5px 0px 0px;
+}
+.down{
+	border: 1px #CBCBCB solid;
+	width: 65px;
+	height: 30px;
+	background-color: #FFFFFF;
+	float: right;
+	padding: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 5px;
+}
+.ok{
+	border: 1px #CBCBCB solid;
+	width: 50px;
+	height: 30px;
+	float: right;
+	padding: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
+}
+.pageSum{
+	width: 50px;
+	height: 22px;
+	float: right;
+	padding: 0px 0px 0px 0px;
+	margin: 7px 8px 0px 20px;
+}
+.daoDi{
+	width:40px;
+	height: 28px;
+	float: right;
+	text-align: center;
+	padding: 0px 0px 0px 0px;
+	margin: 7px 0px 0px 0px;
+}
+.ye{
+	width:20px;
+	height: 28px;
+	float: right;
+	text-align: center;
+	padding: 0px 0px 0px 0px;
+	margin: 7px 0px 0px 5px;
+}
+.pageNum1{
+	border: 1px #00876B solid;
+	width: 28px;
+	height: 28px;
+	float: right;
+	text-align: center;
+	line-height: 30px;
+	padding: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
+}
+.pageNum2{
+	border: 1px #CBCBCB solid;
+	width: 33px;
+	height: 28px;
+	float: right;
+	padding: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
+}
+
+a{ text-decoration: none;}
+.pay a{color:#FFFFFF;}
+.modify a{color:#FFFFFF;}
+.cancel a{color:#434343}
+.view a{color:#434343}  
+
+.pay:link {color: #FF0000}		
+.pay:hover {background-color:#F05631}	
+   
+.modify:link {color: #FF0000}			
+.modify:hover {background-color:#F05631}	
+
+.cancel a:link {color: #434343}		
+.cancel a:hover {color:#008743}	
+
+.view a:link {color: ##434343}		
+.view a:hover {color:#008743}	
+
+.up:link {color: #FF0000}		
+.up:hover {color:#008743;border: 1px #008743 solid;}	
+
+.down:link {color: #FF0000}		
+.down:hover {color:#008743;border: 1px #008743 solid;}	
+

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0px;
+				padding: 0px;
+			}
+			.all{
+				
+				
+			}
+			dl{
+				
+				clear: both;
+				width:750px;
+				height: 40px;
+				background-color: #2CA8A9;
+			}
+			dd{
+				font-size: 18px;
+				font-weight: bolder;
+				color: white;
+				float: left;
+				line-height: 40px;
+				width: 100px;
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="all">
+			<dl>
+				<dd>首页</dd>
+				<dd>身边团购</dd>
+				<dd>美食</dd>
+				<dd>电影</dd>
+				<dd>KTV</dd>
+				<dd>酒店</dd>
+				<dd>购物</dd>
+			</dl>
+		</div>
+		
+		<script type="text/javascript" src="../js/jquery-1.11.1.min.js" ></script>
+		<script>
+			$(function(){
+				
+					$("dd").bind({
+						mouseover:function(){
+							$(this).css("background-color","#147B81");
+						},
+						mouseout:function(){
+							$(this).css("background-color","");
+						}
+					})	
+				
+			})
+		</script>
+	</body>
+</html>

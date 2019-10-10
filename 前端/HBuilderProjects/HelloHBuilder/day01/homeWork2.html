@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<table  align="center"  style="border: 3px green  solid;">
+			<tr>
+				<td>数1</td>
+				<td><input type="number" id="number1"  /></td>
+			</tr>
+			<tr>
+				<td>数2</td>
+				<td><input type="number" id="number2"  /></td>
+			</tr>
+			<tr>
+				<td>结果</td>
+				<td><input type="number" id="result"  /></td>
+			</tr>
+			<tr>
+				<td colspan="3" align="center">
+					<input type="button" value="+" id="add" onclick="getAdd()"/>
+					<input type="button" value="-" id="subtract" onclick="getSubtract()"/>
+					<input type="button" value="*" id="multiply" onclick="getMultiply()"/>
+					<input type="button" value="/" id="divide" onclick="getDivide()"/>
+					<input type="button" value="%" id="remainder" onclick="getRemainder()"/>
+				</td>
+			</tr>
+		</table>
+		
+		<script type="text/javascript">
+			/*加*/
+			function getAdd(){
+				var num1=document.getElementById("number1").value;
+			    var num2=document.getElementById("number2").value;
+				var sum=parseFloat(num1)+parseFloat(num2);
+				document.getElementById("result").value=sum;
+			}
+			/*减*/
+			function getSubtract(){
+				var num1=document.getElementById("number1").value;
+			    var num2=document.getElementById("number2").value;
+				var sum=parseFloat(num1)-parseFloat(num2);
+				document.getElementById("result").value=sum;
+			}
+			/*乘*/
+			function getMultiply(){
+				var num1=document.getElementById("number1").value;
+			    var num2=document.getElementById("number2").value;
+				var sum=parseFloat(num1)*parseFloat(num2);
+				document.getElementById("result").value=sum;
+			}
+			/*除*/
+			function getDivide(){
+				var num1=document.getElementById("number1").value;
+			    var num2=document.getElementById("number2").value;
+				var sum=parseFloat(num1)/parseFloat(num2);
+				document.getElementById("result").value=sum;
+			}
+			/*模*/
+			function getRemainder(){
+				var num1=document.getElementById("number1").value;
+			    var num2=document.getElementById("number2").value;
+				var sum=parseFloat(num1)%parseFloat(num2);
+				document.getElementById("result").value=sum;
+			}
+		</script>
+	</body>
+</html>

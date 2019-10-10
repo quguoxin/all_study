@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>使用正则表达式验证表单内容</title>
+		<link rel="stylesheet" href="css/style.css" />
+		<style>
+			body {
+				margin: 0;
+				padding: 0;
+				font-size: 14px;
+				line-height: 25px;
+			}
+			
+			.main {
+				width: 900px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			
+			.left {
+				text-align: right;
+				width: 180px;
+				height: 25px;
+				padding-right: 5px;
+			}
+			
+			.inputs {
+				width: 130px;
+				height: 16px;
+				border: solid 1px #666666;
+				float: left;
+				margin-right: 5px;
+			}
+			
+			/*.prompt {
+				margin-left: 10px;
+				color: #F00;
+			}*/
+		</style>
+	</head>
+
+	<body>
+		<div class="main"><img src="images/logo.jpg" alt="logo" /></div>
+		<form action="success.html" method="get">
+			<div class="main">
+				<table width="100%" border="0" cellspacing="0" cellpadding="0">
+					<tr>
+						<td class="left"></td>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td class="left">用户名：</td>
+						<td><input id="user" type="text" class="inputs" />
+							<div id="user_prompt" ></div>
+						</td>
+					</tr>
+					<tr>
+						<td class="left">Email地址：</td>
+						<td><input id="email" type="text" class="inputs" />
+							<div id="email_prompt" ></div>
+						</td>
+					</tr>
+					<tr>
+						<td class="left">手机号码：</td>
+						<td><input id="mobile" type="text" class="inputs" />
+							<div id="mobile_prompt" ></div>
+						</td>
+					</tr>
+					<tr>
+						<td class="left">登录密码：</td>
+						<td><input id="pwd" type="password" class="inputs" />
+							<div id="pwd_prompt" ></div>
+						</td>
+					</tr>
+					<tr>
+						<td class="left">密码确认：</td>
+						<td><input id="repwd" type="password" class="inputs" />
+							<div id="repwd_prompt" ></div>
+						</td>
+					</tr>
+					<tr>
+						<td class="left">&nbsp;</td>
+						<td><input id="submitBtn" name="" type="button" style="background-image: url(images/login.jpg); width: 88px; height: 32px;" /></td>
+					</tr>
+				</table>
+			</div>
+		</form>
+		<script type="text/javascript" src="../js/jquery-1.11.1.min.js" ></script>
+		<script>
+			$(function() {
+				/**
+				 * 提交
+				 */
+				$("#submitBtn").click(function(){
+					if(ckUser()&&ckEmail()&&ckMobile()&&ckPwd()&&ckRepwd()){
+						$("form").submit();						
+					}
+				});
+				/**
+				 * 用户名
+				 */
+				$("#user").focus(function(){
+					$("#user_prompt").removeClass("onError onCorrect").addClass("onShow").html("请输入用户名！");
+				});
+				$("#user").blur(function(){
+					ckUser();
+				});
+				function ckUser(){
+					var userValue=$("#user").val().toLowerCase();//获取内容转为小写方便校验
+					var userLength=userValue.length;//内容长度
+					//非空
+					if(userValue==null||userValue==""){
+						//去除原有（提示、正确）样式 ，加错误样式
+						$("#user_prompt").removeClass("onShow onCorrect").addClass("onError").html("用户名不能为空！");
+						return;//代码中断
+					}
+					//格式
+					/*//1.长度：6-12位
+					if(userLength<6||userLength>12){
+						$("#user_prompt").removeClass("onShow onCorrect").addClass("onError").html("用户名为6~12位！");
+						return;
+					}
+					//2.字母 数字
+					for(var i=0;i<userLength;i++){
+						if(!((userValue.charAt(i)>='a'&&userValue.charAt(i)<='z')||(userValue.charAt(i)>=0&&userValue.charAt(i)<=9))){
+							$("#user_prompt").removeClass("onShow onCorrect").addClass("onError").html("必须由字母或数字组成！");
+							return;
+						}
+					}*/
+					
+					var a=/^\w{6,12}$/;
+					var b=/^\d{6,12}$/;
+					var c=/^[a-zA-Z]{6,12}$/;
+					if((!a.test($("#user").val())) || b.test($("#user").val()) || c.test($("#user").val())){
+						$("#user_prompt").removeClass("onShow onCorrect").addClass("onError").html("格式错误！");
+						return;
+					}
+					
+					
+					//验证通过提示
+					$("#user_prompt").removeClass("onShow onError").addClass("onCorrect").html("输入正确！");
+					return true;
+				}
+				
+				/**
+				 * Email地址
+				 */
+				$("#email").focus(function(){
+					$("#email_prompt").removeClass("onError onCorrect").addClass("onShow").html("请输入邮箱！");
+				});
+				$("#email").blur(function(){
+					ckEmail();
+				});
+				function ckEmail(){
+					var emailValue=$("#email").val().toLowerCase();//获取内容转为小写方便校验
+					var emailLength=emailValue.length;//内容长度
+					//非空
+					if(emailValue==null||emailValue==""){
+						//去除原有（提示、正确）样式 ，加错误样式
+						$("#email_prompt").removeClass("onShow onCorrect").addClass("onError").html("邮箱不能为空！");
+						return;//代码中断
+					}
+					//格式
+					//1.长度：6-12位
+					if(emailLength<6||emailLength>12){
+						$("#email_prompt").removeClass("onShow onCorrect").addClass("onError").html("邮箱为6~12位！");
+						return;
+					}
+					
+					
+					/*var sum1=0;
+					var sum2=0;
+					var n1=-1;
+					var n2=-1;
+					for(var j=0;j<emailLength;j++){
+						var m=emailValue.charAt(i);
+						if(m.indexOf('@')!=-1){
+							n1=j;
+							sum1++;
+						}
+						if(m.indexOf('.')!=-1){
+							n2=j;
+							sum2++;
+						}
+					}
+					if(!(sum1==1&&sum2==1&&n1<n2)){
+						$("#email_prompt").removeClass("onShow onCorrect").addClass("onError").html("邮箱格式错误，必须包含.和@且@在前！");
+						return;
+					}*/
+					//2.包含。和@ 且。在@之后
+					if(!(emailValue.indexOf(".")!=-1&&emailValue.indexOf("@")!=-1&&emailValue.indexOf(".")>emailValue.indexOf("@"))){
+						$("#email_prompt").removeClass("onShow onCorrect").addClass("onError").html("邮箱格式错误，必须包含.和@且@在前！");
+						return;
+					}
+					//3.字母 数字
+					for(var i=0;i<emailLength;i++){
+						var s=emailValue.replace(".","").replace("@","").charAt(i);
+						if(!((s>='a'&&s<='z')||(s>=0&&s<=9))){
+							$("#email_prompt").removeClass("onShow onCorrect").addClass("onError").html("除.和@外必须由字母或数字组成！");
+							return;
+						}
+					}
+					//验证通过提示
+					$("#email_prompt").removeClass("onShow onError").addClass("onCorrect").html("输入正确！");
+					return true;
+				}
+				
+				/**
+				 * 手机
+				 */
+				$("#mobile").focus(function(){
+					$("#mobile_prompt").removeClass("onError onCorrect").addClass("onShow").html("请输入手机号！");
+				});
+				$("#mobile").blur(function(){
+					ckMobile();
+				});
+				function ckMobile(){
+					var mobileValue=$("#mobile").val();//获取内容转为小写方便校验
+					var mobileLength=mobileValue.length;//内容长度
+					//非空
+					if(mobileValue==null||mobileValue==""){
+						//去除原有（提示、正确）样式 ，加错误样式
+						$("#mobile_prompt").removeClass("onShow onCorrect").addClass("onError").html("手机不能为空！");
+						return;//代码中断
+					}
+					//格式
+					//1.长度：11位
+					if(mobileLength!=11){
+						$("#mobile_prompt").removeClass("onShow onCorrect").addClass("onError").html("手机号为11位！");
+						return;
+					}
+					//2.数字
+					for(var i=0;i<mobileLength;i++){
+						if(!(mobileValue.charAt(i)>=0&&mobileValue.charAt(i)<=9)){
+							$("#mobile_prompt").removeClass("onShow onCorrect").addClass("onError").html("必须由数字组成！");
+							return;
+						}
+					}
+					//验证通过提示
+					$("#mobile_prompt").removeClass("onShow onError").addClass("onCorrect").html("输入正确！");
+					return true;
+				}
+				
+				/**
+				 * 密码
+				 */
+				$("#pwd").focus(function(){
+					$("#pwd_prompt").removeClass("onError onCorrect").addClass("onShow").html("请输入密码！");
+				});
+				$("#pwd").blur(function(){
+					ckPwd();
+				});
+				function ckPwd(){
+					var pwdValue=$("#pwd").val().toLowerCase();//获取内容转为小写方便校验
+					var pwdLength=pwdValue.length;//内容长度
+					//非空
+					if(pwdValue==null||pwdValue==""){
+						//去除原有（提示、正确）样式 ，加错误样式
+						$("#pwd_prompt").removeClass("onShow onCorrect").addClass("onError").html("密码不能为空！");
+						return;//代码中断
+					}
+					//格式
+					//1.长度：6-12位
+					if(pwdLength!=6){
+						$("#pwd_prompt").removeClass("onShow onCorrect").addClass("onError").html("密码为6位！");
+						return;
+					}
+					//2. 数字
+					for(var i=0;i<pwdLength;i++){
+						if(!((pwdValue.charAt(i)>='a'&&pwdValue.charAt(i)<='z')||(pwdValue.charAt(i)>=0&&pwdValue.charAt(i)<=9))){
+							$("#pwd_prompt").removeClass("onShow onCorrect").addClass("onError").html("必须数字组成！");
+							return;
+						}
+					}
+					//验证通过提示
+					$("#pwd_prompt").removeClass("onShow onError").addClass("onCorrect").html("输入正确！");
+					return true;
+				}
+				
+				/**
+				 * 确认密码
+				 */
+				$("#repwd").focus(function(){
+					$("#repwd_prompt").removeClass("onError onCorrect").addClass("onShow").html("请再次输入密码！");
+				});
+				$("#repwd").blur(function(){
+					ckRepwd();
+				});
+				function ckRepwd(){
+					var repwdValue=$("#repwd").val().toLowerCase();//获取内容转为小写方便校验
+					var repwdLength=repwdValue.length;//内容长度
+					//非空
+					if(repwdValue==null||repwdValue==""){
+						//去除原有（提示、正确）样式 ，加错误样式
+						$("#repwd_prompt").removeClass("onShow onCorrect").addClass("onError").html("密码不能为空！");
+						return;//代码中断
+					}
+					//格式
+					//1.与前面相同
+					if($("#repwd").val()!=$("#pwd").val()){
+						$("#repwd_prompt").removeClass("onShow onCorrect").addClass("onError").html("密码必须相同！");
+						return;
+					}
+					
+					//验证通过提示
+					$("#repwd_prompt").removeClass("onShow onError").addClass("onCorrect").html("输入正确！");
+					return true;
+				}
+			})
+		</script>
+	</body>
+
+</html>

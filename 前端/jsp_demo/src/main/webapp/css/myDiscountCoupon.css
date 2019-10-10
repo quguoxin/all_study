@@ -1,0 +1,133 @@
+	*{
+		margin: 0px;
+		padding: 0px;
+	}
+	
+	
+	.yh_all {
+				border: 1px #E3E6E0 solid;
+				width: 985px;
+
+				background-color: white;
+			}
+			
+			.yh_top {
+				/*border: 1px yellowgreen solid;*/
+				color: #008842;
+				width: 945px;
+				height: 32px;
+				margin: 20px 20px 0px 20px;
+				border-bottom: #008842 solid;
+			}
+			
+			.yh_middle {
+				/*border: 1px yellow solid;*/
+				width: 945px;
+				height: 32px;
+				margin: 20px 20px 0px 20px;
+				border-bottom: #EBEBEB solid;
+			}
+			
+			.yh_bottom {
+				/*border: 1px yellow solid;*/
+				width: 945px;
+
+				margin: 0px 0px 0px 20px;
+				padding-top: 30px;
+			}
+			
+			.mi-1 {
+				/*border: 1px red solid;*/
+				float: left;
+				color: #008842;
+				width: 130px;
+				height: 100%;
+				border-bottom: #008842 solid;
+				padding: 0px 20px;
+			}
+			
+			.mi-2 {
+				/*border: 1px red solid;*/
+				float: left;
+				width: 130px;
+				height: 100%;
+				border-bottom: #EBEBEB solid;
+				padding: 0px 20px;
+			}
+			
+			.mi-3 {
+				/*border: 1px red solid;*/
+				float: left;
+				width: 130px;
+				height: 100%;
+				border-bottom: #EBEBEB solid;
+				padding: 0px 20px;
+			}
+			
+			.tz {
+				float: right;
+				font-size: 12px;
+				color: #008842;
+			}
+			
+			.tupian {
+				/*border: 1px red solid;*/
+				background-image: url('../imgs/coupon/coupon-bg.png');
+				width: 460px;
+				height: 120px;
+				background-position: 0px 120px;
+				float: left;
+			}
+			
+			.f1 {
+				/*border: 1px royalblue solid;*/
+				width: 98px;
+				height: 92px;
+				float: left;
+				margin: 15px 0px 0px 30px;
+				color: #F9742E;
+			}
+			
+			.f2 {
+				/*border: 1px royalblue solid;*/
+				width: 420px;
+				height: 92px;
+				margin: 15px 0px 0px 20px;
+			}
+			
+			.size {
+				font-size: 40px;
+			}
+			
+			.color {
+				color: #F9742E;
+			}
+			.d1{
+				/*border: 1px red solid;*/
+				width: 985px;
+				height:25px;
+				/*margin: 150px 0px 0px 560px;*/
+				
+			}
+			.a{
+				color: #008842;
+			}
+		.riqi{
+			line-height: 24px;
+			margin-top: 40px;
+		}
+.mi_a_1{
+	
+	text-decoration: none;
+	color: #008842;
+}
+.mi_a_2{
+	
+	text-decoration: none;
+	color: #666695;
+}
+/*.mi_a:link{color: #666695;}  <!--初始状态-->
+.mi_a:visited{}  <!--不放开是状态-->
+.mi_a:hover{color: #008842;}  <!--悬浮状态-->
+.mi_a:active{color: #008842;}  <!--点击后状态-->
+*/

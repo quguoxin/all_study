@@ -1,0 +1,263 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+/**{*/
+    /*border: 0px;*/
+/*}*/
+.mid_a{
+    clear: both;
+    width: 1200px;
+    height: 37px;
+    border-bottom: solid 1px #008743;
+    margin-left: 75px;
+}
+.a_1{
+    width: 180px;
+    height: 38px;
+    background-color: #008743;
+    text-align: center;
+    line-height: 35px;
+    color: white;
+    font-size: 15px;
+    float: left;
+}
+.a_2{
+    float: left;
+    width: 90px;
+    color: black;
+    font-size: 15px;
+    margin-top: 10px;
+    margin-left: 28px;
+}
+.dakuai{
+    width: 100%;
+    height: 100%;
+    background-color: #F7F8F8;
+    clear: both;
+    margin-top: -6px;
+}
+
+.zuodakuai{
+    border: #F7F8F8 1px solid;
+    width: 521px;
+    height: 620px;
+    margin-left: 75px;
+    float: left;
+}
+.datu{
+    border: 1px #F7F8F8 solid;
+    width: 520px;
+    height: 500px;
+}
+.zuoxiaotu{
+border: 1px #F7F8F8 solid;
+    clear: both;
+}
+span.sp{
+    margin-right: 10px;
+    display:block;
+    width: 85px;
+    height: 85px;
+    border: 1px #BCBCBC solid;
+    float: left;
+}
+span.sp:hover{
+   border:1px #008842 solid;
+}
+.youdakuai{
+    margin-left: 598px;
+    border: 1px #F7F8F8 solid;
+    width: 680px;
+    height: 620px;
+}
+.aa{
+    border: #F7F8F8 1px solid;
+    font-size: 13px;
+    width: 360px;
+    margin-left: 75px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+}
+a{
+    color: #444444;
+    text-decoration: none;
+
+}
+a:hover{
+   color: #008869;
+}
+p.p{
+    font-size: 26px;
+    color: #44446B;
+}
+span.p1{
+    color: #E8340C;
+    font-size: 16px;
+}
+.youTop{
+    border: 1px #F7F8F8 solid;
+}
+.jiagekuai{
+    margin-top: 70px;
+    width: 680px;
+    height: 95px;
+    background-color: white;
+}
+span.b1{
+    font-size: 11px;
+    line-height: 65px;
+}
+span.b2{
+    font-size: 30px;
+    color: #FF0000;
+}
+.jiage{
+    border: 1px #F7F8F8 solid;
+    margin-left: 25px;
+    width: 140px;
+    height: 48px;
+    float: left;
+}
+.jiagezi{
+    margin-left: 417px;
+    margin-top: 10px;
+    border:1px #F7F8F8 solid;
+    width: 72px;
+    height: 72px;
+    float: left;
+    font-size: 13px;
+    line-height: 20px;
+}
+.yougouwu{
+    border:1px #F7F8F8 solid;
+    width: 525px;
+    height: 310px;
+    float: left;
+}
+.zuxiao{
+    border-bottom:1px #D9D9D9 dashed ;
+
+}
+.cuxiao{
+    line-height: 50px;
+    height: 55px;
+}
+span.cu1{
+    border: 1px #F7F8F8 solid;
+    color: white;
+    background-color: #E8380D;
+}
+.youbiaoge{
+    border-left:1px #D9D9D9 solid;
+    width: 130px;
+    height: 270px;
+    float: right;
+    margin-top: 20px;
+}
+.zhongjian{
+    width: 1200px;
+    height: 300px;
+    clear: both;
+    margin-left: 75px;
+}
+.cainixihuan{
+    border: 1px #CDE4C0 solid;
+    width: 255px;
+    height: 210px;
+    background-color: white;
+    float: left;
+}
+.dangjiremai{
+    border: #D4D4D4 1px solid;
+    width: 930px;
+    height: 280px;
+    margin-left: 10px;
+    background-color: white;
+    float: left;
+}
+.cnxh{
+background-color: #008842;
+    color:white;
+    padding-left:10px;
+    font-size: 13px;
+    height: 30px;
+    line-height: 30px;
+}
+.shisanxiang{
+    border-bottom: 1px #CDCDCD dashed;
+    clear: both;
+    height: 90px;
+    margin-left: 12px;
+}
+.shisanxiang1{
+    margin-top: 5px;
+    clear: both;
+    height: 90px;
+    margin-left: 12px;
+}
+.shisanzi{
+
+    padding-top: 10px;
+    width: 155px;
+    height: 65px;
+    font-size: 9px;
+    float: left;
+}
+p.jia49{
+    color: #E8340C;
+}
+a{
+    text-decoration: none;
+}
+a:hover{
+    color: #008842;
+}
+.jieshao{
+
+    width: 1200px;
+    margin-left: 75px;
+}
+.xxjieshao{
+    border: #D4D4D4 1px solid;
+    width: 930px;
+
+    margin-left: 267px;
+    background-color: white;
+}
+.spxq{
+    border: 1px #D4D4D4 solid;
+    height: 40px;
+    clear: both;
+}
+.spxq1{
+    background-image: url("../imgs/product_detail/product.png");
+    background-repeat: no-repeat;
+    background-position: -33px -58px;
+    width: 130px;
+    height: 40px;
+    text-align: center;
+    border-bottom: white 1px solid;
+    border-right:#D4D4D4 1px solid ;
+    float: left;
+}
+.spxq2{
+    background-repeat: no-repeat;
+    background-position: -33px -58px;
+    width: 130px;
+    height: 40px;
+    text-align: center;
+
+    border-right:#D4D4D4 1px solid ;
+    float: left;
+}
+.ab{
+    color: black;
+    font-size: 13px;
+    line-height: 40px;
+}
+.quanshitupian{
+margin-left: 28px;
+    margin-top: 25px;
+}

@@ -1,0 +1,83 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+
+
+	.all_data{
+				border: 1px #E3E6E0 solid;
+				width: 985px;
+				height: 810px;
+				background-color: white;
+			}
+			.data_top{
+				/*border: 1px #00888E solid;*/
+				width: 945px;
+				height: 32px;
+				margin-left: 20px;
+				margin-top: 20px;
+				border-bottom:#00888E solid ;
+			}
+			.data_mid{
+				/*border: 1px cyan solid;*/
+				width: 900px;
+				height: 700px;
+			    margin: 20px 50px 0px 50px;
+			}
+			.data_table{
+				border: black solid;
+				width: 900px;
+				height: 700px;
+			}
+			.sj_color{
+				color: #008842;
+			}
+			.yanzheng{
+				color: #54A110;
+			}
+			.dl_all{
+				width: 300px;
+				height: 40px;
+			}
+			.dl_bgcolor{
+				width: 320px;
+				height: 40px;
+				background-color: #008842;
+				text-align: center;
+			}
+			.dl_font{
+				width: 40px;
+				height: 20px;
+				color: white;
+				position: absolute;
+			    margin-top: 10px;
+			    text-decoration: none;
+			
+			}
+			.font_wz{
+				width: 80px;
+				height: 20px;
+				margin-left: 100px;
+				
+			}
+			.bgcc{
+				height: 30px;
+				width: 300px;
+				padding-left: 10px;
+				margin-right: 50px;
+			}
+	.yxyz{
+		
+		width: 50px;
+		height: 30px;
+		background-color: #008842;
+		color: white;
+		font-size: 16px;
+		text-decoration: none;
+	}
+	a.yxyz:hover{
+		background-color: #09964E;
+	}
+	div.dl_bgcolor:hover{
+		background-color: #09964E;
+	}

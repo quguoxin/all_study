@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+
+	</head>
+
+	<body>
+	</body>
+	<script>
+		var array = new Array('America', 'Greece', 'Britain', 'Canada', 'China', 'Egypt');
+		var number = 0;
+		for(var i = 0; i < array.length; i++) {
+			document.write(array[i].toLowerCase()+"<br>");
+			if(array[i].lastIndexOf('A') != -1 || array[i].lastIndexOf('a') != -1) {
+				number++;
+			}
+		}
+		document.write('number=' + number+"<br>");
+		
+	</script>
+
+</html>

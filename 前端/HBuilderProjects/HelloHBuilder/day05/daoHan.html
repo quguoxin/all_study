@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.all{
+				background-color: #F2F2F2;
+				width: 200px;
+				/*height: 300px;*/
+			}
+			.a{
+				width: 10px;
+				height: 50px;
+				background-color: #FE705C;
+			}
+			dt{
+				/*border: 1px red  solid;*/
+				width: 200px;
+				height: 50px;
+				clear: both;
+			}
+			dt div{
+				line-height: 50px;
+				text-indent: 30px;
+				float: left;
+			}
+			dd{
+				width: 200px;
+				height: 50px;
+				line-height: 50px;
+				margin-left: 0px;
+				clear: both;
+				display: none;
+				
+			}
+			dd img{
+				margin-left: 20px;
+			}
+			dd div{
+				height: 45px;
+				/*border: 1px red  solid;*/
+				float: left;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="all">
+			<dl>
+				<dt><div class="a">&nbsp;</div><div><strong>购物特权</strong></div></dt>
+				<dd><div><img src="tree/Image 001.png"/></div><div style="line-height: 40px;">全额兑换</div> </dd>
+				<dd><div><img src="tree/Image 002.png"/></div><div style="line-height: 40px;">俱乐部包邮卡</div> </dd>
+				<dd><div><img src="tree/Image 003.png"/></div><div style="line-height: 40px;">购物领金币</div> </dd>
+				<dd><div><img src="tree/Image 004.png"/></div><div style="line-height: 40px;">每日领金币</div> </dd>
+				<dd><div><img src="tree/Image 005.png"/></div><div style="line-height: 40px;">VIP阶梯价</div> </dd>
+			</dl>
+		</div>
+		
+		<script type="text/javascript" src="../js/jquery-1.11.1.min.js" ></script>
+		<script>
+			$(function(){
+				$("dt").click(function(){
+					$("dd").toggle(1000);
+					$("dd").bind({
+						mouseover:function(){
+							$(this).css("background-color","#F9DBD1");
+						},
+						mouseout:function(){
+							$(this).css("background-color","");
+						}
+					})	
+				})
+			})
+		</script>
+	</body>
+</html>

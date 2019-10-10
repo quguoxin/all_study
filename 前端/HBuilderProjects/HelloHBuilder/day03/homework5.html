@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#photo{
+				background-image: url(img/spring.jpg);
+				width: 400px;
+				height: 400px;
+				background-repeat: no-repeat;
+				clear: both;
+				margin: 50px 450px;
+			}
+			.desc{
+				float: left;
+				margin-left: 50px;
+				margin-top: 250px;
+				width: 30px;
+				height: 20px;
+				background-color: white;
+				line-height: 20px;
+				text-align: center;
+				opacity: 0.5;
+				
+			}
+		</style>
+	</head>
+	<body>
+		<div id="photo">
+			<div class="desc">1</div>
+			<div class="desc">2</div>
+			<div class="desc">3</div>
+			<div class="desc">4</div>
+		</div>
+		
+		<script src="../js/jquery-1.11.1.min.js"></script>
+		<script>
+			$(function(){
+				var i=0;
+			    var timer;
+			    var array=new Array('summer.jpg','autumn.jpg','winter.jpg','spring.jpg');
+				timer=window.setInterval(
+					function(){
+						   if(i==4){
+							 i=0;
+						    }
+						    $("#photo").css("background-image","url(img/"+array[i]+")");
+						    for(var j=0;j<$(".desc").length;j++){
+							   $(".desc").eq(j).css("background-color","white");
+						    }
+						    $(".desc").eq(i).css("background-color","yellow");
+						    i++;
+					},200);
+			
+			
+			    $(".desc").mouseover(function(){
+			    	var num = $(this).index();
+			    	window.clearInterval(timer);
+			    	//window.clearInterval(timer1);
+				    for(var j=0;j<$(".desc").length;j++){
+							$(".desc").eq(j).css("background-color","white");
+				    }
+				    $(".desc").eq(num).css("background-color","yellow");
+				    $("#photo").css("background-image","url(img/"+array[num]+")");
+			    });
+			    
+			    
+			    
+			     $(".desc").mouseout(function(){
+			     	timer=window.setInterval(
+					function(){
+						   if(i==4){
+							 i=0;
+						    }
+						    $("#photo").css("background-image","url(img/"+array[i]+")");
+						    for(var j=0;j<$(".desc").length;j++){
+							   $(".desc").eq(j).css("background-color","white");
+						    }
+						    $(".desc").eq(i).css("background-color","yellow");
+						    i++;
+					},200);
+			     })
+			     
+		
+			  
+			})
+		</script>
+	</body>
+</html>

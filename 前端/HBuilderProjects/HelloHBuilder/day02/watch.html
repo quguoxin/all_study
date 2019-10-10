@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="myLock" style="border: 4px black  solid;
+			 width: 350px; height: 80px; font-size: 20px; margin: 20px auto;text-align: center;line-height: 80px;">
+		</div>
+		<script type="text/javascript">
+			var hours;
+			var amPm;
+			var week;
+			
+			function starTime(){
+				var times=window.setInterval("getTime()",1000);
+			}
+			
+			function getTime(){
+			var textDate =new Date();
+			if(textDate.getHours()>12){
+				hours=textDate.getHours()-12;
+				amPm="  PM";
+			}else{
+				hours=textDate.getHours();
+				amPm="  AM";
+			}
+			if(textDate.getDay()==0){
+				week="  星期天";
+			}
+			if(textDate.getDay()==1){
+				week="  星期一";
+			}
+			if(textDate.getDay()==2){
+				week="  星期二";
+			}
+			if(textDate.getDay()==3){
+				week="  星期三";
+			}
+			if(textDate.getDay()==4){
+				week="  星期四";
+			}
+			if(textDate.getDay()==5){
+				week="  星期五";
+			}
+			if(textDate.getDay()==6){
+				week="  星期六";
+			}
+			var timeStr=textDate.getFullYear()+"年"+(textDate.getMonth()+1)+"月"+
+			            textDate.getDate()+"日   "+hours+":"+textDate.getMinutes()+":"+
+			            textDate.getSeconds()+amPm+week;
+			document.getElementById("myLock").innerHTML=timeStr;  
+			
+			
+			}
+			            
+			window.onload= starTime();
+		</script>
+		
+	</body>
+</html>

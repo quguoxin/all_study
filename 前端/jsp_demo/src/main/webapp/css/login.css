@@ -1,0 +1,53 @@
+             * {
+				margin: 0;
+				padding: 0;
+			}
+			.table{
+				border: 1px #E2E5DF solid;
+			}
+			
+			.login {
+				/*border: 3px red solid;*/
+				width: 1366px;
+				/*height: 1000px;*/
+			}
+			.user{
+				text-indent: 50px;
+				background: url(../imgs/login/Image010.png);
+				background-size: 40px 40px;
+				background-repeat: no-repeat;
+			}
+			.password1{
+				text-indent: 50px;
+				background: url(../imgs/login/password.png);
+				background-size: 40px 40px;
+				background-repeat: no-repeat;
+			}
+			.password{
+				text-indent: 50px;
+				background: url(../imgs/login/password.png);
+				background-size: 40px 38px;
+				background-repeat: no-repeat;
+				float: left;
+			}
+			.yanzhengma{
+				
+				width: 120px;
+				height: 40px;
+				margin: 0px 0px;
+				float: left;
+				text-indent: 0px;
+			
+			}
+
+			/*#tiShis{
+				border: 1px #E4393C solid;
+				width: 290px;
+				height: 26px;
+				color:red;
+				margin-left: 20px;
+				text-align: center;
+			}*/
+			.border{
+				border: 3px red  solid;
+			}

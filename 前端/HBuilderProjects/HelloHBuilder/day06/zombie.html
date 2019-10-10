@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			* {
+				margin: 0px;
+				padding: 0px;
+			}
+			
+			.all {
+				/*margin-left: auto;*/
+				width: 1366px;
+				height: 619px;
+				background-image: url(zhiwu/bg.png);
+				background-repeat: no-repeat;
+				background-size: 1366px 619px;
+			}
+			
+			#zhiwu1 {
+				position: absolute;
+				left: 400px;
+				top: 80px;
+			}
+			
+			#zhiwu2 {
+				position: absolute;
+				left: 400px;
+				top: 180px;
+			}
+			
+			#zhiwu3 {
+				position: absolute;
+				left: 400px;
+				top: 280px;
+			}
+			
+			#zhiwu4 {
+				position: absolute;
+				left: 400px;
+				top: 380px;
+			}
+			
+			#zhiwu5 {
+				position: absolute;
+				left: 400px;
+				top: 480px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="all">
+			<img id="zhiwu1" src="zhiwu/Peashooter.gif" />
+			<img id="zhiwu2" src="zhiwu/Peashooter.gif" />
+			<img id="zhiwu3" src="zhiwu/Peashooter.gif" />
+			<img id="zhiwu4" src="zhiwu/Peashooter.gif" />
+			<img id="zhiwu5" src="zhiwu/Peashooter.gif" />
+		</div>
+
+		<script type="text/javascript" src="../js/jquery-1.11.1.min.js"></script>
+		<script>
+			$(function() {
+				
+				
+				//调用方法 按组循环创建僵尸 子弹
+				for(var i = 0; i <= 4; i++) {
+					var top = 80 + (i * 100)
+					game(top)
+				}
+
+
+
+                //游戏方法封装 
+				function game(top) {
+					var num = 0;//打中次数
+					//创建1个僵尸
+					var jsObj = $('<img src="zhiwu/Zombie.gif" style="position: absolute;top:' + (top - 70) + 'px;left: 1205px;"/>');
+					$("body").append(jsObj);
+					
+					/**
+					 * 子弹
+					 */
+					var zdCreatTimer = setInterval(function() {
+						//利用时间定时器：创建子弹（多久发射1次）
+						var zdObj = $('<img src="zhiwu/PB00.gif" style=" width: 60px;height: 40px; position: absolute;top:' + top + 'px;left: 430px;"/>');
+						$("body").append(zdObj);
+						//利用时间定时器：改变子弹的位置，即移动子弹（多久移动1次）
+						var zdTimer = setInterval(function() {
+							//获取子弹原有位置
+							var zdleft = parseInt(zdObj.css("left"));
+							//子弹宽
+							var zdwidth = parseInt(zdObj.css("width"));
+							//僵尸位置
+							var jsleft = parseInt(jsObj.css("left"));
+							//通过改变子弹的left值来实现位置的改变
+							zdObj.css("left", (zdleft + 1) + "px");
+							//相遇
+							if(zdleft + zdwidth - 100 >= jsleft||jsleft<=400) {
+								num++;//相遇次数
+								//相遇后子弹（1颗）就不会移动了，即子弹(1颗)的时间定时器停止
+								window.clearInterval(zdTimer);
+								//子弹变身
+								zdObj.prop("src", "zhiwu/PeaBulletHit.gif");
+								//一秒后相遇的子弹对象消失
+								setTimeout(function() {
+									zdObj.remove();
+								}, 800);//子弹变身后停留的时间
+							}
+						}, 10);//子弹移动一次的时间（子弹速度）
+					}, Math.random()*1000+500);//子弹的创建时间
+
+                    /**
+                     * 僵尸
+                     */
+					//js();//运行僵尸方法
+					//function js() {
+						//利用时间定时器来改变僵尸的位置
+						var jsTimer = setInterval(function() {
+							var jsleft = parseInt(jsObj.css("left"));
+							jsObj.css("left", (jsleft - 1) + "px");
+							//相遇
+							if(num >= 15||jsleft<=400) {//条件相遇20次后僵尸死亡
+								window.clearInterval(jsTimer);//死亡后关闭僵尸移动的时间定时器
+								window.clearInterval(zdCreatTimer);//关闭子弹的发射时间定时器
+								jsObj.prop("src", "zhiwu/BoomDie1.gif");//僵尸变身
+								//利用一次性时间定时器实现变身后一段时间内僵尸消失
+								setTimeout(function() {
+									jsObj.remove();
+								}, 1000);
+							}
+						}, Math.random()*100+10)//决定僵尸移动速度
+					//}
+				}
+				
+
+			})
+		</script>
+	</body>
+
+</html>

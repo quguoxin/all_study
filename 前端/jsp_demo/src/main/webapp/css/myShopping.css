@@ -1,0 +1,255 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+.cart h2 {
+    font-weight: normal;
+    height: 38px;
+    line-height: 38px;
+    background-color: #fff;
+    background-position: 0 0;
+    border-bottom: 2px solid #05984d;
+    text-indent: -9999em;
+    position: relative;
+    background-image: url(../imgs/myShopping/bg_cart.png);
+    background-repeat: no-repeat;
+    font-size: 12px;
+}
+.cart{
+    width: 1275px;
+    padding-left: 75px;
+    background-color: #F7F8F8;
+    border: 0px solid black;
+    margin-top: -5px;
+}
+.cart .city {
+    text-indent: 0;
+}
+a{
+    text-decoration: none;
+    color: #444444;
+    font-size: 12px;
+}
+
+.cart .city-sz {
+    float: left;
+    height: 16px;
+    line-height: 16px;
+    margin: 7px 0;
+    cursor: pointer;
+    overflow: hidden;
+}
+.city-tit{
+    float: left;
+    overflow: hidden;
+}
+
+.cart .city {
+    position: absolute;
+    left: 230px;
+    top: 4px;
+    text-indent: 0;
+}
+.cart .city-name {
+    z-index: 100;
+    position: relative;
+    display: block;
+    float: left;
+    height: 20px;
+    line-height: 20px;
+    margin-top: 5px;
+    padding: 0 5px 5px 5px;
+    cursor: pointer;
+    overflow: hidden;
+}
+.on-shopping {
+    position: absolute;
+    right: 0;
+    color: #008842;
+    text-indent: 0;
+    text-decoration: underline;
+    margin-right: 22px;
+}
+.cart-table th {
+    height: 40px;
+    background-color: #f1f1f1;
+    font: 12px/40px Simsun;
+    text-align: center;
+    padding: 0 10px;
+
+}
+.cart-table{
+    mso-cellspacing: 0px;
+}
+
+.wrap{
+    width: 1200px;
+}
+.cart-t-check{
+    padding-left: 10px;
+}
+.cart-alert {
+    border: 1px solid #e3e6e0;
+    border-top: 0;
+    padding: 10px 20px;
+    background-color: #fff;
+}
+.cart-table td{
+    border-top: 1px solid #ebebeb;
+    padding: 10px;
+    text-align: center;
+}
+.cart-table td img {
+    width: 80px;
+    height: 80px;
+    border: 1px solid #ebebeb;
+    position: relative;
+}
+.cart-t-num {
+    width: 110px;
+    color: #262626;
+    font: 12px/1em Simsun;
+}
+.cart-table td.cart-t-info {
+    text-align: left;
+}
+.itxt {
+
+    border: 1px solid #cacbcb;
+    width: 42px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    padding: 1px;
+    margin: 0;
+    font-size: 12px;
+    font-family: verdana;
+    color: #333;
+    -webkit-appearance: none;
+}
+.cart-alert {
+    border: 1px solid #e3e6e0;
+    border-top: 0;
+    padding: 10px 20px;
+    background-color: #fff;
+}
+.cart-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #ebebeb;
+    margin-bottom: 10px;
+}
+.cart-footer label {
+    vertical-align: middle;
+}
+.cart-footer a {
+    font: 12px/40px Simsun;
+    margin-left: 20px;
+}
+.cart-footer .btn {
+    font: bold 18px/1em "微软雅黑";
+    background-color: #ff5317;
+    color: #fff;
+    padding: 10px 20px;
+    display: inline-block;
+    margin-left: 0;
+}
+.cart-footer span {
+    margin-right: 20px;
+}
+.fr {
+    float: right;
+    /*  margin-right: 50px;*/
+    overflow: hidden;
+}
+.fl{
+    float: left;
+    overflow: hidden;
+}
+.cart-footer {
+    background-color: #f7f7f7;
+    font-size: 12px;
+    margin-top: 20px;
+    padding: 10px;
+}
+.wrap:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+.cart-footer .wrap{
+    width: 1145px;
+}
+.preferential-buy {
+    position: relative;
+    border: 1px solid #e3e6e0;
+    margin-top: 25px;
+    overflow: hidden;
+    background: #fff;
+}
+.preferential-buy h3 {
+    border-bottom: 1px solid #79ae92;
+    background-color: #eff7f1;
+    height: 38px;
+    padding-left: 18px;
+    color: #008842;
+    font: bold 16px/38px Simsun;
+}
+.preferential-buy ul {
+    padding-left: 0px;
+    margin-left: 2px;
+    list-style-type: none;
+}
+.preferential-buy li {
+    width: 299px;
+    height:90px;
+    background-color: #fff;
+    padding: 10px 0;
+    border: 1px solid #e3e6e0;
+    border-bottom: 1px solid #e3e6e0;
+    float: left;
+    margin-left: -2px;
+    margin-bottom: -1px;
+    list-style-type: none;
+}
+
+.product .p-img {
+    margin-bottom: 5px;
+    overflow: hidden;
+    position: relative;
+}
+.product .p-price {
+    color: #333;
+    line-height: 24px;
+}
+.product .p-price del {
+    display: block;
+    float: right;
+    font-size: 13px;
+    color: #888;
+}
+.product .p-price strong {
+    font-size: 20px;
+    color: #e93005;
+}
+.p-img{
+    float: left;
+}
+.cart-footer em {
+    color: #ff5317;
+    font-weight: bold;
+    margin: 0 5px;
+    font-size: 18px;
+    font-style: normal;
+    line-height: 1em;
+}
+.cart-footer .ub em {
+    color: #249c61;
+    font: bold 14px/1em Simsun;
+}
+#address{
+    display: none;
+    margin-top: -30px;
+}

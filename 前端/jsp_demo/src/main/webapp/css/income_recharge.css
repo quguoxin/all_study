@@ -1,0 +1,30 @@
+.in_recharge{
+    width: 900px;
+    height: 220px;
+}
+.recharge_cz{
+    color: green;
+}
+.in_recharge_top{
+    margin-top: 100px;
+}
+.recharge_cz_top{
+    float: left;
+}
+.recharge_cz_bot{
+    float: left;
+    margin-left: 30px;
+}
+.recharge_ljcz{
+    color: white;
+    text-decoration: none;
+
+}
+.recharge_ljcz_bg{
+    background-color: #008743;
+    width:90px;
+    height:35px;
+    text-align: center;
+    line-height: 38px;
+    margin-left: 300px;
+}

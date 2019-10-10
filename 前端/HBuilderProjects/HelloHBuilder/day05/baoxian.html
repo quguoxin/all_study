@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0px;
+				padding: 0px;
+			}
+			.all{
+				margin-left: 10px;
+			}
+			.block{
+				width: 970px;
+				height: 35px;
+				text-indent: 15px;
+				line-height: 35px;
+				
+			}
+			input{
+				height:15px;
+				width: 24px;
+				font-weight: bolder;
+				font-size: 16px;
+			}
+			label{
+				margin-left: 20px;
+			}
+			.none{
+				border: 2px #D9EFED  solid;
+				width:900px ;
+				height: 150px;
+				padding-left: 70px;
+				padding-top: 15px;
+				line-height: 23px;
+				display: none;
+			}
+			.change{
+				background-color: #D9EFED;
+				border-radius: 5px;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div class="all">
+			<div class="block"><input type="button" value="+"/><label>什么是人生保险</label></div>
+			<div class="none">
+				<p>解答：<br />
+					<a href="https://baike.baidu.com/item/%E4%BA%BA%E8%BA%AB%E4%BF%9D%E9%99%A9/84369?fr=aladdin" target="_self">人身保险</a>
+					是以人的生命或身体为保险标的，在被保险人的生命或身体发生保险事故或保险期满时，依照保险合同的规定，由<br />
+					保险人向被保险人或受益人给付保险金的保险形式。人身保险包括人寿保险、伤害保险、健康保险三种。在财产保险中，保险人<br />
+					承担的是保险标的损失的赔偿责任，而在人身保险中，保险人承担的是给付责任，不问损失与否与多少。为此，人身保险通常均<br />
+					为定额保险。
+				</p>
+			</div>
+			<div class="block"><input type="button" value="+"/><label>什么是保险合同</label></div>
+			<div class="none">
+				<p>解答：<br />
+					<a href="https://baike.baidu.com/item/%E4%BA%BA%E8%BA%AB%E4%BF%9D%E9%99%A9/84369?fr=aladdin" target="_self">人身保险</a>
+					是以人的生命或身体为保险标的，在被保险人的生命或身体发生保险事故或保险期满时，依照保险合同的规定，由<br />
+					保险人向被保险人或受益人给付保险金的保险形式。人身保险包括人寿保险、伤害保险、健康保险三种。在财产保险中，保险人<br />
+					承担的是保险标的损失的赔偿责任，而在人身保险中，保险人承担的是给付责任，不问损失与否与多少。为此，人身保险通常均<br />
+					为定额保险。
+				</p>
+			</div>
+			<div class="block"><input type="button" value="+"/><label>什么是保险人</label></div>
+			<div class="none">
+				<p>解答：<br />
+					<a href="https://baike.baidu.com/item/%E4%BA%BA%E8%BA%AB%E4%BF%9D%E9%99%A9/84369?fr=aladdin" target="_self">人身保险</a>
+					是以人的生命或身体为保险标的，在被保险人的生命或身体发生保险事故或保险期满时，依照保险合同的规定，由<br />
+					保险人向被保险人或受益人给付保险金的保险形式。人身保险包括人寿保险、伤害保险、健康保险三种。在财产保险中，保险人<br />
+					承担的是保险标的损失的赔偿责任，而在人身保险中，保险人承担的是给付责任，不问损失与否与多少。为此，人身保险通常均<br />
+					为定额保险。
+				</p>
+			</div>
+			<div class="block"><input type="button" value="+"/><label>什么是投保人</label></div>
+			<div class="none">
+				<p>解答：<br />
+					<a href="https://baike.baidu.com/item/%E4%BA%BA%E8%BA%AB%E4%BF%9D%E9%99%A9/84369?fr=aladdin" target="_self">人身保险</a>
+					是以人的生命或身体为保险标的，在被保险人的生命或身体发生保险事故或保险期满时，依照保险合同的规定，由<br />
+					保险人向被保险人或受益人给付保险金的保险形式。人身保险包括人寿保险、伤害保险、健康保险三种。在财产保险中，保险人<br />
+					承担的是保险标的损失的赔偿责任，而在人身保险中，保险人承担的是给付责任，不问损失与否与多少。为此，人身保险通常均<br />
+					为定额保险。
+				</p>
+			</div>
+		</div>
+		
+		
+		<script type="text/javascript" src="../js/jquery-1.11.1.min.js" ></script>
+		<script>
+			$(function(){
+				$(".block").bind({
+						mouseover:function(){
+							$(this).addClass("change");
+						},
+						mouseout:function(){
+							$(this).removeClass("change");
+						}
+				})
+				$("input").click(function(){
+					var a= $(this).prop("value");
+					if(a=="+"){
+						$(this).prop("value","-").parent().next().toggle(1000);
+						$(this).next().css("color","green")
+					}else{
+						$(this).prop("value","+").parent().next().toggle(1000);
+						$(this).next().css("color","")
+					}
+					
+				})
+			})
+		</script>
+	</body>
+</html>

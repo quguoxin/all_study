@@ -1,0 +1,109 @@
+
+			*{
+				margin: 0px;
+				padding: 0px;
+			}
+			.producttop{
+				/*border: 2px red solid;*/
+				clear: both;
+				width: 1366px;
+				height: 110px;	
+			}
+			.top{
+				/*border: 1px yellow solid;*/
+				width: 1366px;
+				height: 30px;
+				background-color: #F6F8F7;
+				clear: both;
+			}
+			 .top dl{
+				 font-size: 13px;
+			     margin-top: 6px;
+			     vertical-align: middle;    
+			}
+			 .left{
+				
+				margin-left: 75px;
+				float: left;
+			}
+			 .right{
+				float: right;
+				margin-right: 75px;
+			}
+
+			 .right dd{
+				padding-left: 20px;
+				height: 20px;
+				float: right;
+			}
+			 .right img{
+				vertical-align: middle;
+			}
+
+
+			 .productbottom{
+				/*border: 1px green solid;*/
+				 clear: both;
+				width: 1366px;
+				height: 80px;
+				background-color: #DFDFDF;
+			}
+			 .a{
+				 /*border: 1px green solid;*/
+				float: left;
+				margin-left: 75px;
+			}
+			 .b{
+				float: left;
+				margin-left: 140px;
+				margin-top: 15px;
+			}
+			 .c{
+				float: right;
+				margin-right: 75px;
+				margin-top: 15px;
+			}
+			 .b1 dd{
+				font-size: 5px;
+				float: left;
+				margin-right: 9px;
+			}
+			 .c{
+				border: 1px #008743 solid;
+				background-color: white;
+				width: 172px;
+				height: 42px;
+			}
+			 #img1{
+				margin: 13px 50px;
+			}
+
+			 #adress{
+				margin-top: -1px;
+				width: 485px;
+	            height:313px;
+	            background-color: white;
+	            z-index: 9999;  
+	            position: absolute;
+	            margin-left: 185px;
+	            display: none;
+			}
+
+			 .myYiguo2{
+				width: 96px;
+				height: 202px;
+				background-color: white;
+	            z-index: 9999;  
+	            position: absolute;
+	            display: none;
+	            left: 877px;
+	            top: 25px;
+	            border-right:1px #DEDEDE solid ;
+	            border-left:1px #DEDEDE solid ;
+	            border-bottom:1px #DEDEDE solid ;
+			}
+			 .myYiguo2 dt{
+				margin-left: 10px;
+				margin-top: 10px;
+			}
+			

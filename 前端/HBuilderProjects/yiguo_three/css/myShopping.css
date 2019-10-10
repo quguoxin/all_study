@@ -1,0 +1,138 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+.gouwuche{
+    border-left: #E3E6E0 1px solid;
+    border-right: #E3E6E0 1px solid;
+    border-bottom: #E3E6E0 1px solid;
+    width: 1220px;
+    height: 440px;
+    margin: 0px auto;
+    margin-top: 20px;
+    background-color: white;
+}
+.jixugouwu{
+border-bottom: 1px #008842 solid;
+    height: 38px;
+    background-image: url("../imgs/myShopping/bg_cart.png");
+    background-repeat: no-repeat;
+    clear: both;
+}
+.peisong{
+margin-top: 10px;
+
+    width: 190px;
+    font-size: 14px;
+   margin-left: 255px;
+    float: left;
+}
+.jixumai{
+    margin-top: 7px;
+    margin-right: 20px;
+    float: right;
+    font-size: 14px;
+}
+a{
+    text-decoration: none;
+    color: #008842;
+}
+.quanxuan{
+    border: 1px #F1F1F1 solid;
+    width: 1180px;
+    margin-left: 20px;
+    background-color: #F1F1F1;
+    height: 40px;
+    font-size: 13px;
+}
+.goumaisp{
+    border: 1px #F1F1F1 solid;
+    margin-top: 10px;
+    margin-left: 20px;
+    width: 1180px;
+}
+a.yiru{
+    color: black;
+    text-decoration: none;
+}
+.xian{
+    border-bottom: 2px #EBEBEB solid;
+    margin-top: 10px;
+}
+.shanchu{
+border: 1px #F7F7F7 solid;
+    background-color: #F7F7F7;
+    width: 1180px;
+    height: 60px;
+    margin-left: 20px;
+    margin-top: 20px;
+    clear: both;
+}
+ul{
+    clear: both;
+}
+li{
+    list-style-type: none;
+    font-size: 14px;
+    margin: 0px 22px;
+    float: left;
+}
+.a22{
+    margin-top: 20px;
+    width: 400px;
+    float: left;
+}
+.a33{
+    width: 370px;
+    float: right;
+    margin-top: 10px;
+
+}
+.tehuidakuai{
+    border: 1px #E3E6E0 solid;
+    width: 1220px;
+    height: 160px;
+    margin-top: 40px;
+    clear: both;
+    background-color: white;
+}
+.thhg{
+    width: 1220px;
+    height: 40px;
+    border-bottom:1px #79AE92 solid ;
+background-color: #EFF7F1;
+    }
+.tehuizi{
+    display: block;
+    font-size: 20px;
+    color: #008842;
+    width: 160px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    float: left;
+}
+.huanyipi{
+    display: block;
+    font-size: 14px;
+    float: right;
+    margin-right: 20px;
+    line-height: 40px;
+}
+.qiaonong{
+    border: #E3E6E0 1px solid;
+    width: 310px;
+    height: 118px;
+    clear: both;
+}
+.hg{
+    display: block;
+    width: 40px;
+    font-size: 13px;
+    text-align: center;
+    color: white;
+    background-color: red;
+}
+*{
+    border: 0px;
+}

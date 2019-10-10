@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+			<style>
+				.top{
+					width: 425px;
+					height: 35px;
+					background-color: #F7F5F4;
+				}
+				
+				.top div{
+					height: 28px;
+					margin-top: 5px;
+					width: 100px;
+					float: left;
+					text-align: center;
+				}
+				.caipiao img{
+					width: 425px;
+					height: 171px;
+				}
+				.chongzhi{
+					display: none;
+				}
+				.caipiao{
+					display: none;
+				}
+				.click{
+					background-color: white;
+					color: #FF6C0A;
+					border-top:2px #FF6C0A solid;
+				}
+			</style>
+		
+	</head>
+	<body>
+		<div>
+			<div class="top">
+				<div style="margin-left: 20px;">手机充值</div>
+			    <div class="caipiaotop">彩票</div>
+			</div>			
+			<div class="chongzhi"><img src="tab/chongzhi.png"></div>
+			<div class="caipiao"><img src="tab/caipiao.png" /> </div>
+		</div>
+		
+		<script type="text/javascript" src="../js/jquery-1.11.1.min.js" ></script>
+		<script>
+			$(function(){
+				$(".top>div:eq(0)").click(function(){
+					$(this).addClass("click");
+					$(".top>div:eq(1)").removeClass("click");
+					$(".chongzhi").css("display","block");
+					$(".caipiao").css("display","none");
+				});
+				$(".top>div:eq(1)").click(function(){
+					$(this).addClass("click");
+					$(".top>div:eq(0)").removeClass("click");
+					$(".chongzhi").css("display","none");
+					$(".caipiao").css("display","block");
+				})
+			})
+		</script>
+	</body>
+</html>

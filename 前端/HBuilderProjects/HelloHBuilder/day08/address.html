@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>新地址</title>
+		<link rel="stylesheet" href="css/style3.css" />
+		<link rel="stylesheet" href="css/address.css" />
+	</head>
+	<body>
+		<form method="get" action="success.html">
+			<div id="all">
+				<div id="use"><!--<img src="imgs/new_site.jpg" />-->
+					<div id="use_a"></div>使用新地址
+					<!--<span id="use_b"></span>-->
+				</div>
+				<div>
+					<table cellpadding="0" cellspacing="0" border="0" style="margin-top: 5px;">
+						<tr>
+							<td align="right" class="left">收货人姓名：</td>
+							<td style="padding-left: 5px;" width="540px">
+								<input id="user" type="text" size="34" name="consigneeName">
+								<div id="user_prompt" class="inputs"></div>
+							</td>
+							
+						</tr>
+						<tr>
+							<td align="right" class="left">手机号码：</td>
+							<td style="padding-left: 5px;">
+								<input id="mobile" type="text" size="34" name="phoneNumber">
+								<div id="mobile_prompt"></div>
+							</td>
+						</tr>
+						<tr>
+							<td align="right" class="left">收货地址：</td>
+							<td style="padding-left: 5px;">
+								<select>
+									<option>广东</option>
+								</select>
+								<select style="margin-left: 10px;">
+									<option>深圳</option>
+								</select>
+								<select id="adress" style="margin-left: 10px;">
+									<option></option>
+									<option>宝安区</option>
+									<option>龙华区</option>
+									<option>福田区</option>
+								</select>
+								<div id="adress_prompt"></div>
+							</td>
+						</tr>
+						<tr>
+							<td align="right" class="left">详细地址：</td>
+							<td style="padding-left: 5px;">
+								<input id="adressAll" type="text" size="44" name="address">
+								<div id="adressAll_prompt"></div>
+							</td>
+						</tr>
+						<tr>
+							<td align="right" class="left">固定电话：</td>
+							<td style="padding-left: 5px;"><input type="text" size="34" name="telephone"></td>
+						</tr>
+						<tr>
+							<td align="right" class="left">邮政编码：</td>
+							<td style="padding-left: 5px;"><input type="text" size="27" name="postalCode"></td>
+						</tr>
+						<tr style="border: 3px red  solid;">
+							<td></td>
+							<td style="padding-left: 5px;padding-top: 10px;">
+								<input id="home" class="button" type="button" value="家庭地址">
+								<input id="company" class="button"  type="button" value="公司地址" style="margin-left: 10px;">
+								<div id="homeOrCompany_prompt"></div>	
+							</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td style="padding-left: 5px; padding-top: 10px;"><input id="submitBtn" class="sub" type="button" value="保存"></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</form>
+		
+		<script type="text/javascript" src="../js/jquery-1.11.1.min.js" ></script>
+		<script>
+			$(function(){
+				//
+				$("#submitBtn").click(function(){
+					if(ckUser()&&ckMobile()&&b&&ckAdress()&&ckAdressAll()){						
+						$("form").submit();						
+					}
+				});
+				//用户名
+				$("#user").focus(function(){
+					$("#user_prompt").removeClass("onError onCorrect").addClass("onShow").html("请输入收货人姓名！");
+				});
+				$("#user").blur(function(){
+					ckUser();
+				});
+				function ckUser(){
+					var user_regExp=/^[a-zA-Z\u4E00-\u9FA5]{3,15}$/gim;
+					var userValue=$("#user").val();
+					//非空
+					if(userValue==null||userValue==""){
+						$("#user_prompt").removeClass("onShow onCorrect").addClass("onError").html("用户名不能为空！");
+						return;//代码中断
+					}
+					//格式
+					if(!user_regExp.test($("#user").val())){
+						$("#user_prompt").removeClass("onCorrect onShow").addClass("onError").html("格式错误！");
+						return;
+					}
+					//验证通过提示
+					$("#user_prompt").removeClass("onShow onError").addClass("onCorrect").html("输入正确！");
+					return true;
+				}
+				
+				//手机
+				$("#mobile").focus(function(){
+					$("#mobile_prompt").removeClass("onError onCorrect").addClass("onShow").html("请输入手机号！");
+				});
+				$("#mobile").blur(function(){
+					ckMobile();
+				});
+				function ckMobile(){
+					var mobileValue=$("#mobile").val();
+					var mobile_regExp=/^1[0-9]{10}$/gim;
+					//非空
+					if(mobileValue==null||mobileValue==""){
+						$("#mobile_prompt").removeClass("onShow onCorrect").addClass("onError").html("手机不能为空！");
+						return;//代码中断
+					}
+					//格式
+					//1.长度：11位数字
+					if(!mobile_regExp.test(mobileValue)){
+						$("#mobile_prompt").removeClass("onShow onCorrect").addClass("onError").html("手机号格式错误！");
+						return;
+					}
+					//验证通过提示
+					$("#mobile_prompt").removeClass("onShow onError").addClass("onCorrect").html("输入正确！");
+					return true;
+				}
+				
+				//地址
+				$("#adress").focus(function(){
+					$("#adress_prompt").removeClass("onError onCorrect").addClass("onShow").html("请选择地区！");
+				});
+				$("#adress").blur(function(){
+					ckAdress();
+				});
+				function ckAdress(){
+					var adressValue=$("#adress").val();
+					//非空
+					if(adressValue==null||adressValue==""){
+						$("#adress_prompt").removeClass("onShow onCorrect").addClass("onError").html("地区不能为空！");
+						return;//代码中断
+					}
+					//验证通过提示
+					$("#adress_prompt").removeClass("onShow onError").addClass("onCorrect").html("输入正确！");
+					return true;
+				}
+				
+				//详细地址
+				$("#adressAll").focus(function(){
+					$("#adressAll_prompt").removeClass("onError onCorrect").addClass("onShow").html("请填写详细地址！");
+				});
+				$("#adressAll").blur(function(){
+					ckAdressAll();
+				});
+				function ckAdressAll(){
+					var adressAllValue=$("#adressAll").val();
+					//非空
+					if(adressAllValue==null||adressAllValue==""){
+						$("#adressAll_prompt").removeClass("onShow onCorrect").addClass("onError").html("详细地址不能为空！");
+						return;//代码中断
+					}
+					//验证通过提示
+					$("#adressAll_prompt").removeClass("onShow onError").addClass("onCorrect").html("输入正确！");
+					return true;
+				}
+				
+				//地址选择
+				var b=false;
+				ckA();
+				function ckA(){
+					$("#homeOrCompany_prompt").removeClass("onShow onCorrect").addClass("onError").html("请选择地址类型！");
+					$("#home").click(function(){
+						$(this).addClass("border").next().removeClass("border");
+					    $("#homeOrCompany_prompt").removeClass("onError onCorrect").addClass("onCorrect").html("您已选择了家庭地址！");
+					   b=true;
+				    });
+				    $("#company").click(function(){
+				    	$(this).addClass("border").prev().removeClass("border");
+					    $("#homeOrCompany_prompt").removeClass("onError onCorrect").addClass("onCorrect").html("您已选择了公司地址！");
+					     b=true;
+				    });			    
+				}
+			})
+		</script>
+	</body>
+</html>

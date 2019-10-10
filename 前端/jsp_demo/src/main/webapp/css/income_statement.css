@@ -1,0 +1,102 @@
+.balance{
+	border: 1px #EAEAEA solid;
+	width: 980px;
+	height: 500px;
+	background-color: #FFFFFF;
+	padding: 0px 0px 0px 0px;
+	margin:  0px 0px 0px 0px;
+}
+.son1{
+	width: 930px;
+	height: 50px;
+	padding: 0px 0px 0px 0px;
+	margin:  0px 25px 0px 25px;
+}
+.myBalance{
+	margin: 20px 0px 11px 0px;
+	color: #008743;
+	font-size: 16px;
+	font-weight: bold;
+	float: left;
+}
+.span{
+	color: #E7380F;
+	font-weight: bold;
+}
+.viewBalance{
+	width: 930px;
+	height: 50px;
+	padding: 0px 0px 0px 0px;
+	margin:  10px 24px 0px 26px;
+	float: right;
+}
+.viewBalance1{
+margin:  15px 0px 0px 0px;
+font-size: 15px;
+font-family: "微软雅黑" ;
+}
+.recharge{
+	color:white;
+	/*display: none;*/
+	background-color: #008743;
+	width:90px;
+	height:35px;
+	text-align: center;
+	line-height: 38px;
+	padding: 0px 0px 0px 0px;
+	margin:  -28px 0px 0px 300px;
+
+}
+.recharge_a{
+	color: white;
+	text-decoration: none;
+}
+.son3{
+	width: 930px;
+	height: 60px;
+	padding: 0px 0px 0px 0px;
+	margin:  0px 25px 0px 25px;
+}
+.detail{
+	margin: 28px 0px 0px 0px;
+	color: #008743;
+	border-bottom: 3px #008743 solid;
+	font-size: 16px;
+	font-weight: bold;
+	float: left;
+}
+.record{
+	margin: -45px 0px 1px 0px;
+	float:right
+}
+.table{
+	width: 930px;
+	height: 50px;
+	background-color:#F6F6F6 ;
+	margin: 65px 25px 0px 25px;
+	line-height: 55px;
+}
+.float{
+	float: left;
+	width: 100px;
+	margin: 0px 22px 0px 22px ;
+	text-align:center ;
+}
+.float1{
+	float: left;
+	width: 120px;
+	margin: 0px 22px 0px 22px ;
+	text-align:center ;
+}
+.noRrecord{
+	width:930px;
+	height: 150px;
+	margin: auto 30px;
+}
+.income_statement_bottom{
+	/*border: 1px red solid;*/
+	width: 400px;
+	height:25px;
+	margin:0px 0px 0px 500px;
+	float: left;
+}

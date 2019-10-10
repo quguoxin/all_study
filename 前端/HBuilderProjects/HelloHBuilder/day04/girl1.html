@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.all {
+				border: 3px gray solid;
+				width: 300px;
+				height: 220px;
+				background-color: #DFDFDF;
+				margin-top: 30px;
+				margin-left: 500px;
+			}
+			
+			.girl {
+				width: 250px;
+				height: 133px;
+				margin-left: 25px;
+				margin-top: 10px;
+				/*background-image: url(girl/girl_1.gif);*/
+			}
+			
+			.bottom {
+				width: 300px;
+			}
+			
+			input {
+				background-color: #E8DFC4;
+				width: 50px;
+				height: 30px;
+				float: left;
+				margin-left: 20px;
+				margin-top: 15px;
+				text-indent: 4px;
+				line-height: 30px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="all">
+			<div class="girl">
+
+			</div>
+			<div class="bottom">
+				<input type="button" value="快进" />
+				<input type="button" value="快退" />
+				<input type="button" value="停止" />
+				<input type="button" value="播放" />
+			</div>
+		</div>
+
+		<script src="../js/jquery-1.11.1.min.js"></script>
+		<script>
+			$(function() {
+				var speed = 200;
+				var i = 0;
+				var timer;
+				var array = new Array('girl_1.gif', 'girl_2.gif', 'girl_3.gif', 'girl_4.gif', 'girl_5.gif',
+					'girl_6.gif', 'girl_7.gif', 'girl_8.gif', 'girl_9.gif', 'girl_10.gif', 'girl_11.gif');
+				var tmp = "";
+				for(var j = 0; j < array.length; j++) {
+					if(j == 0) {
+						tmp += '<img src="girl/' + array[j] + '" style="display: block;"/>';
+					} else {
+						tmp += '<img src="girl/' + array[j] + '" style="display: none;"/>';
+					}
+
+					$(".girl").html(tmp);
+				}
+				//播放
+				$("input").eq(3).click(function() {
+					window.clearInterval(timer);
+					speed = 200;
+					timer = window.setInterval(
+						function() {
+							if(i == 11) {
+								i = 0;
+							}
+							//$(".girl").css("background-image","url(girl/"+array[i]+")");
+							$(".girl img").eq(i).css("display", "block").siblings("img").css("display", "none");
+							i++;
+						}, speed);
+				});
+
+				//暂停
+				$("input").eq(2).click(function() {
+					window.clearInterval(timer);
+				});
+
+				//快退
+				$("input").eq(1).click(function() {
+					window.clearInterval(timer);
+					timer = window.setInterval(
+						function() {
+							if(i == 11) {
+								i = 0;
+							}
+							//$(".girl").css("background-image","url(girl/"+array[i]+")");
+							$(".girl img").eq(i).css("display", "block").siblings("img").css("display", "none");
+							i++;
+						}, speed = speed * 2);
+				});
+
+				//快进
+				$("input").eq(0).click(function() {
+					window.clearInterval(timer);
+					timer = window.setInterval(
+						function() {
+							if(i == 11) {
+								i = 0;
+							}
+							//$(".girl").css("background-image","url(girl/"+array[i]+")");
+							$(".girl img").eq(i).css("display", "block").siblings("img").css("display", "none");
+							i++;
+						}, speed = speed / 2);
+				});
+			})
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,178 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+.all {
+	width: 180px;
+	line-height: 38px;
+	background-color: #008842;
+	/*margin-top: -6px;*/
+	margin-left: 75px;
+	float: left;
+	/*border: 1px solid black;*/
+}
+
+.all a {
+	
+	text-decoration: none;
+	padding-left: 33px;
+}
+
+
+.new{
+	list-style-type: none;
+	float: left;
+	line-height: 35px;
+	width: 115px;
+	text-align: center;
+	font-weight: bold;
+}
+
+div ul li a {
+	color: #444444;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+div ul li a:hover {
+	color: #008842;
+}
+#list{
+	border: 0px red solid;
+	height: 36px;
+	width: 1200px;
+	background-color: #F1F1F1;
+	margin: 20px auto;
+	clear: both;
+	margin-left: 75px;
+	border: 1px solid #C7C7C7;
+}
+.fish{
+	list-style-type: none;
+	float: left;
+	padding-left: 17px;
+	color: #777777;
+	line-height: 5px;
+	font-size: 2px;
+	margin-top: 17px;
+}
+
+#pix_list{
+	width: 100px;
+	height:36px;
+	float: left;
+	color: #777777;
+	font-size: 2px;
+	text-indent: 30px;
+	line-height: 38px;
+	background-color: #EAEAEA;
+}
+#list_params{
+	height: 40px;
+	width: 1200px;
+	margin-left: 75px;
+	background-color: #EAEAEA;
+	margin: 0px auto;
+}
+
+#list_table{
+	 width:246px;
+	 height:30px;
+	 float: left;
+	border: 1px solid #C7C7C7;
+	margin: 5px auto 10px 10px;
+}
+/*#shop_body{
+	width: 1366px;
+	height: auto;
+	background-color: #F7F8F8;
+	margin: 12px auto;
+	border: 1px red solid ;
+	margin-top: -20px;
+}*/
+
+.body{
+	width: 1366px;
+	height: auto;
+	margin: 0px auto;
+
+	/*margin-left: 75px;*/
+	float: left;
+	background-color: #F7F8F8;
+}
+a:link{
+	color: #777777;
+	text-decoration: none;
+}
+
+a:hover{
+	color: green;
+}
+
+#t1 td{
+	background-color: white;
+	font-size: 13px;
+}
+
+#t1 td:hover{
+	background-color: #EAEAEA;
+	text-decoration: none;
+}
+
+
+.foods{
+	width: 295px;
+	height: 380px;
+	background-color: white;
+	float: left;
+	margin-right: 17px;
+}
+
+.price{
+	color: #E8340C;
+	font-weight: 700;
+	text-indent: 10px;
+	line-height: 20px;
+	float: left;
+}
+
+.desc{
+	text-indent: 10px;
+	line-height: 35px;
+	font-size: 5px;
+}
+
+.promote{
+	background-color: #E8340C;
+	height: 20px;
+	width: 20px;
+	float: left;
+	margin-left: 25px;
+	color: white;
+}
+
+.more{
+	font-size: 13px;
+	color: red;
+	float: left;
+	height: 15px;
+	width: 98px;
+	margin-left: 10px;
+}
+
+.lastfoods{
+	width: 292px;
+	height: 360px;
+	background-color: white;
+	float: right;
+}
+
+.food{
+	width: 300px;
+	height: auto;
+	margin-left: 30px;
+	float: left;
+	margin-bottom: 30px;
+}
+

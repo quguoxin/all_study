@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0px;
+				padding: 0px;
+			}
+			.lottery{
+				/*border: 5px black  solid;*/
+				width: 1300px;
+				height: 500px;
+				background-color: #DFDFDF;
+				margin-left: 20px;
+			}
+			.ball{
+				/*border: 3px yellow  solid;*/
+				width: 1300px;
+				height: 200px;
+				margin-top: 50px;
+			}
+			#red{
+				/*border: 1px yellow solid;*/
+				width: 140px;
+				height: 140px;
+				background-color: red;
+				border-radius: 100%;
+				float: left;
+				margin-left: 40px;
+				margin-top: 20px;
+				font-size: 50px;
+				line-height: 120px;
+				text-indent: 40px;
+			}
+			#blue{
+				/*border: 1px yellow solid;*/
+				width: 140px;
+				height: 140px;
+				background-color: blue;
+				border-radius: 100%;
+				float: left;
+				margin-left: 40px;
+				margin-top: 20px;
+				font-size: 50px;
+				line-height: 120px;
+				text-indent: 40px;
+			}
+			.star{
+				/*border: 2px green  solid;*/
+				background-color: yellow;
+				width: 300px;
+				height: 100px;
+				font-size: 40px;
+				padding-left: 30px;
+				padding-top: 30px;
+				margin-top: 70px;
+				margin-left: 450px;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div class="lottery">
+			<div class="ball">
+				<dl>
+					<dd id="red"></dd>
+					<dd id="red"></dd>
+					<dd id="red"></dd>
+					<dd id="red"></dd>
+					<dd id="red"></dd>
+					<dd id="red"></dd>
+					<dd id="blue"></dd>
+				</dl>
+			</div>
+			<div class="star">点击开始摇奖</div>
+		</div>
+		
+		<script  src="js/jquery-1.11.1.min.js" ></script>
+		<script>
+			$(function(){
+				var timer1;
+				var timer2;
+				var a=-1;
+				var b=0;
+				var array=new Array(6);
+				$(".star").click(function(){
+					timer1=window.setInterval(
+						function(){
+							timer2=window.setInterval(
+							  function(){
+								 if(a<6){
+							          $("dd").eq(a).html(b=parseInt(Math.random()*34));
+						         }
+						         if(a==6){
+							          $("dd").eq(a).html(b=parseInt(Math.random()*16));
+						         };
+						         for(var i=0;i<6;i++){
+						         	if(b==array[i]){
+						         		a=a-1;//通过a的返回依次重新执行
+						         		break;
+						         	}
+						         };
+						        array[a+1]=b;
+							  },100							  
+						    );
+						   a++;
+						},1000
+					);
+				})
+				
+				if(a==7){
+					clearInterval(timer1);
+					clearInterval(timer2);
+				}
+			})
+		</script>
+	</body>
+</html>

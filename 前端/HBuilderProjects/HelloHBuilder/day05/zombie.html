@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.all{
+				width: 896px;
+				height: 593px;
+				background-image: url(zhiwu/bg.png);
+				margin: 50px auto;
+			}
+			#zombie{
+				margin-left: 580px;
+				margin-top: 300px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="all">
+			<div><img id="zombie" src="zhiwu/Zombie.gif" /></div>
+		</div>
+		
+		<script type="text/javascript" src="../js/jquery-1.11.1.min.js" ></script>
+		<script>
+			$(function(){
+				$(document).keydown(function(){
+					var top=parseInt($("#zombie").css("margin-top"));
+					var left=parseInt($("#zombie").css("margin-left"));
+					if(event.keyCode==87){//w
+						$("#zombie").css("margin-top",(top-5)+"px").css("","rotate(-90deg)");
+					}else if(event.keyCode==83){//s
+						$("#zombie").css("margin-top",(top+5)+"px");
+					}else if(event.keyCode==65){//a
+						$("#zombie").css("margin-left",(left-5)+"px").css("transform","");
+					}else if(event.keyCode==68){//d
+						$("#zombie").css("margin-left",(left+5)+"px").css("transform","scaleX(-1)");
+					}
+				})
+			})
+		</script>
+	</body>
+</html>

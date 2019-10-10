@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			ul{
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			<h3>如何使用叮当网购物？</h3>
+			<ul type="disc">
+				<li ><font color="red"><strong>方法一：</strong></font> 注册成为网站会员</li>
+				<li><font color="red"><strong>方法二：</strong></font>使用合作企业账号登录，如新浪微博、QQ、人人网账号</li>
+			</ul>
+		</div>
+		<script src="../js/jquery-1.11.1.min.js"></script>
+		<script>
+			$(function(){
+				$("h3").click(function(){
+				   $("ul").css("display","block");
+			    });
+			})
+			
+		</script>
+	</body>
+</html>

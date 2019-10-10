@@ -1,0 +1,93 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+span{
+    color: #008842;
+    font-size: 16px;
+    font-weight: bold;
+}
+.dakuai{
+    border: 1px #E3E6E0 solid;
+    width: 980px;
+    /*height: 450px;*/
+    overflow: hidden;
+    background-color: white;
+}
+.shoucang{
+    border-bottom: 1px #008842 solid;
+    margin: 0px 20px;
+    height: 30px;
+    margin-top: 20px;
+}
+.qxsc{
+    overflow: hidden;
+
+}
+label{
+    float: left;
+    margin-left: 20px;
+    display: block;
+    margin-top: 18px;
+}
+label input{
+    margin: 0px 35px;
+}
+.qxsc a{
+    text-decoration: none;
+}
+.qx{
+    display:inline-block;
+    width:110px;
+    height:26px;
+    line-height:26px;
+    text-align:center;
+    background-color:#fff2ec;
+    border:1px solid #f14b00;
+    color:#f14b00;
+    margin-right:10px;
+    font-size: 14px;
+}
+.qx1{
+    display:inline-block;
+    width:110px;
+    height:26px;
+    line-height:26px;
+    text-align:center;
+    border:1px solid #f14b00;
+    color:#f14b00;
+    margin-right:10px;
+    font-size: 14px;
+}
+.quanxuananniu{
+    margin-left: 160px;
+    margin-top: 14px;
+}
+.dht{
+    width: 940px;
+    height: 50px;
+    background-color: #F1F1F1;
+    margin-left: 20px;
+    margin-top: 14px;
+}
+
+.spxq{
+    margin-left: 20px;
+    width:938px;
+    border: 1px #EBEBEB solid;
+    height: 115px;
+    margin-top: 10px;
+    padding-top: 10px;
+}
+.qx2{
+    font-size: 12px;
+    color: black;
+}
+.qx2:hover{
+    color: #008842;
+}
+.tupian{
+    border: 1px #EBEBEB solid;
+    width: 90px;
+    height: 90px;
+}

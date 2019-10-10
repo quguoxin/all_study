@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#photo{
+				background-image: url(images/spring.jpg);
+				width: 400px;
+				height: 400px;
+				background-repeat: no-repeat;
+				clear: both;
+				margin: 50px 450px;
+			}
+			.desc{
+				float: left;
+				margin-left: 50px;
+				margin-top: 250px;
+				/*border: 1px red  solid;*/
+				width: 30px;
+				height: 20px;
+				background-color: white;
+				line-height: 20px;
+				text-align: center;
+				opacity: 0.5;
+				
+			}
+		</style>
+	</head>
+	<body>
+		<div id="photo">
+			<div class="desc" onmouseover="show(0)" onmouseout="changeShow()">1</div>
+			<div class="desc" onmouseover="show(1)" onmouseout="changeShow()">2</div>
+			<div class="desc" onmouseover="show(2)" onmouseout="changeShow()">3</div>
+			<div class="desc" onmouseover="show(3)" onmouseout="changeShow()">4</div>
+		</div>
+		<script type="text/javascript">
+			var i=0;
+			var timer;
+			var array=new Array('summer.jpg','autumn.jpg','winter.jpg','spring.jpg');
+			function changeShow(){
+				timer=window.setInterval(
+					function(){
+						if(i==4){
+							i=0;
+						}
+						document.getElementById("photo").style.backgroundImage='url(images/'+array[i]+')';
+						var descArray=document.getElementsByClassName("desc");
+						for(var j=0;j<descArray.length;j++){
+							descArray[j].style.backgroundColor="white";
+						}
+						var descObj=descArray[i];
+						descObj.style.backgroundColor="yellow";
+						i++;
+					},1000
+				);
+			}
+			
+			function show(a){
+				window.clearInterval(timer);
+				var descArray=document.getElementsByClassName("desc");
+				for(var j=0;j<descArray.length;j++){
+							descArray[j].style.backgroundColor="white";
+				}
+				descArray[a].style.backgroundColor="yellow";
+				document.getElementById("photo").style.backgroundImage='url(images/'+array[a]+')';
+			}
+			window.onload=changeShow();
+		</script>
+	</body>
+</html>

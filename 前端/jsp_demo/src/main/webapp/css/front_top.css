@@ -1,0 +1,15 @@
+*{
+				margin: 0px;
+				padding: 0px;
+			}
+			.login{
+				height: 72px;
+				background-color: #DFDFDF;
+			}
+			.top{
+				border: 0px red solid;
+				height: 72px;
+				background: url('../imgs/login/Image 001.png');
+				background-repeat: no-repeat;
+				background-position:73px center;
+			}

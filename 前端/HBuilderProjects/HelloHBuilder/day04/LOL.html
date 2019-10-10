@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<p><h1>英雄联盟 </h1></p>
+		<p>《英雄联盟》(简称LOL)。</p>
+		<p>
+			英雄联盟（League of Legends）是由美国<strong>Riot Games</strong>开发，腾讯游戏运营的全新英雄对战网游。 英雄联盟的
+			<span>主创团队由各著名游戏公司的<strong>核心美术、策划、程序人员</strong>组成，
+			他们打造了游戏中风格特色各异的英雄， 加入更加丰富的物品合成系统、地图玩法、天梯匹配机制，
+			以及独创的“召唤师”技能、符文、天赋组合，让玩家感受不一样的
+			<span>英雄对战网游</span>
+			</span>
+			....
+			<a href="#">更多详情</a>
+		</p>
+		<p>
+			<h3>目录</h3>
+			<ul>
+				<li><a href="#">开发团队</a></li>
+				<li><a href="#">游戏周边</a></li>
+				<li><a href="#">游戏介绍</a></li>
+				<li><a href="#">配置要求</a></li>
+				<li><a href="#">游戏背景</a></li>
+			</ul>
+		</p>
+		
+		
+		<script  src="../js/jquery-1.11.1.min.js" ></script>
+		<script>
+			$(function(){
+				$("h1").click(function(){
+					$("p:eq(2)").css("color","red").css("background-color","#7EFFFF").css("font-weight","bolder");
+					$("p:eq(3)>span").css("background-color","#FF9DFF").css("color","blue");
+					$("p:eq(3)>span>span").css("background-color","#7EFFFF").css("color","blue");
+					$("a:eq(1)").css("background-color","#7EFFFF").css("color","yellow").css("font-weight","bolder");
+			    })
+		
+			})
+		</script>
+	</body>
+</html>

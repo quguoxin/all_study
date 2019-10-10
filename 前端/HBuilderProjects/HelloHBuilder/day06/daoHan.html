@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0px;
+				padding: 0px;
+			}
+			body{
+				background-color: #F6F7F7;
+			}
+			.all{
+				width: 1166px;
+				margin:0px auto;
+			}
+			.a{
+				width: 1166px;
+				height: 300px;
+				background-color: red;
+			}
+			.b{
+				width: 1166px;
+				height: 500px;
+				background-color: yellow;
+			}
+			.c{
+				width: 1166px;
+				height: 200px;
+				background-color: green;
+			}
+			#kefu{
+				position: fixed;
+				left: 1285px;
+				top: 515px;
+			}
+			#top{
+				position: fixed;
+				left: 1285px;
+				top: 565px;
+				display: none;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div id="kefu"><img src="zhiwu/kefu1.png"></div>
+		<div id="top"><a href="#bestTop"><img src="zhiwu/top.png" /></a> </div>
+		<div class="all">
+			<div class="a" id="bestTop"></div>
+			<div class="b"></div>
+			<div class="c"></div>
+		</div>
+		
+		<script type="text/javascript" src="../js/jquery-1.11.1.min.js" ></script>
+		<script>
+			$(function(){
+				$(window).scroll(function(){
+					var top=$(document).scrollTop();			
+					if(top>=300){
+						$('#top').show();
+					}else{
+						$('#top').hide();
+					}
+				});
+				
+				$("#kefu").bind({
+						mouseover:function(){
+							$("#kefu img").prop("src","zhiwu/kefu2.png");
+						},
+						mouseout:function(){
+							$("#kefu img").prop("src","zhiwu/kefu1.png");
+						}
+				})	
+				
+				$("#top").bind({
+						mouseover:function(){
+							$("#top img").prop("src","zhiwu/top2.png");
+						},
+						mouseout:function(){
+							$("#top img").prop("src","zhiwu/top.png");
+						}
+				})
+				
+			})
+		</script>
+	</body>
+</html>

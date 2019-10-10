@@ -1,0 +1,158 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+.mid_all{
+	/*border: 3px red  solid;*/
+	width: 1349px;
+	height: 990px;
+	margin-top: -15px;
+	background-color: #F7F9F9;
+}
+.mid{
+	background-color: white;
+	width: 1202px;
+	height: 980px;
+	margin-left: 76px;
+	margin-top: 0px;
+}
+
+.a{
+	border-bottom: 1px green  solid;
+	width: 1202px;
+	height: 39px;
+	background:url(../imgs/settlement/bg_order.png);
+	background-repeat: no-repeat;
+	background-position:0px -115px ;
+	margin-top: 0px;
+}
+
+#b_1{
+	/*border: 1px red  solid;*/
+}
+#b_1_1{
+	width: 1100px;
+	height: 20px;
+	clear: both;
+}
+#b_1_1_1{
+	width: 30px;
+	height: 30px;
+	background: url(../imgs/settlement/bg_order.png);
+	background-repeat: no-repeat;
+	background-position:0px 0px ;
+	float: left;
+}
+#b_1_1_2{
+	margin-top: 5px;
+	float: left;
+	color: green;
+}
+
+#b_1_2{
+	border-left:  1px  green  solid;
+	margin-left: 10px;
+	text-indent: -30px;
+	line-height: 50px;
+	font-size: 14px;
+	color: green;
+	
+}
+#b_1_3{
+	border-left: 1px  green  solid;
+	height: 0px;
+	margin-left: 10px;
+	padding: 30px;
+	padding-top: 5px;
+
+}
+#b_2_2{
+	border-left:  1px  green  solid;
+	margin-left: 10px;
+	text-indent: -65px;
+	line-height: 50px;
+	font-size: 14px;
+	
+}
+#b_2_3{
+	border-left: 1px  green  solid;
+	height: 0px;
+	margin-left: 10px;
+	padding: 20px;
+	padding-top: 5px;
+
+}
+
+#b_2{
+	/*border: 1px red  solid;*/
+	width: 1202px;
+	height: 270px;
+}
+.table{
+	border: 1px  #EBEBEB  solid;
+	width: 1000px;
+	height: 80px;
+	margin-left:20px;
+	margin-top: 15px;
+}
+#b_3_2{
+	border-left: 1px  green  solid;
+	margin-left: 10px;
+	height: 210px;
+	font-size: 14px;
+}
+
+#b_4_2{
+	border-left: 1px  green  solid;
+	margin-left: 10px;
+	height: 210px;
+
+}
+#b_5{
+	/*border: 1px red  solid;*/
+	width: 1202px;
+	height: 270px;
+	
+}
+#span_1{
+	/*border: 1px red  solid;*/
+	height: 65px;
+	margin-top: 15px;
+	margin-left: 20px;
+	line-height: 15px;
+	font-size: 14px;
+}
+#b_4_3{
+	
+	/*border: 1px red  solid;*/
+	margin-top: -130px;
+	text-align: right;
+	line-height:30px;
+	font-size: 14px;
+}
+
+#adress{
+	width: 1366px;
+	height:50px;
+	background-color: white;
+	z-index: 9999;
+	position: fixed;
+	bottom: 50px;
+	clear: both;
+}
+#adress_a{
+	/*border: 1px green  solid;*/
+	width: 450px;
+	height: 30px;
+	margin-right:0px;
+	float: right;
+}
+#adress_b{
+	background-color: red;
+	width: 80px;
+	height: 30px;
+	color: white;
+	font-size: 20px;
+	float: right;
+	margin-right: 95px;
+}
