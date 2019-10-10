@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+    <!--配置java的属性文件-->
+    <properties resource="db.properties"></properties>
+
+    <!--配置日志文件-->
+    <settings>
+        <setting name="logImpl" value="LOG4J"/>
+    </settings>
+    
+    <!--配置环境-->
+    <environments default="dev">
+        <!--开发环境-->
+        <environment id="dev">
+            <!--事务管理器：
+              JDBC：使用jdbc提交和回滚功能，使用连接的数据源来管理事务
+              MANAGEN：表示什么都不做，从不提交回滚和关闭连接，让外部容器(spring或javaee服务器)来管理事务
+            -->
+            <transactionManager type="JDBC"></transactionManager>
+            <!--数据源
+              UNPOOLED:非连接池，每次请求打开和关闭一个连接
+              POOLED:连接池，缓存连接对象
+              JNDI:java命名目录接口，在tomcat的配置文件中配置连接池，通过名称进行访问
+            -->
+            <dataSource type="POOLED">
+                <!--常规四项：用户，密码，驱动，url-->
+                <property name="username" value="${username}"></property>
+                <property name="password" value="${password}"></property>
+                <property name="driver" value="${driver}"></property>
+                <property name="url" value="${url}"></property>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <!--在mybatis全局配置文件中映射文件加载（注解）-->
+    <mappers>
+        <!--映射路径-->
+        <mapper resource="com/qgx/www/mapper/InsuranceMapper.xml"></mapper>
+        <mapper resource="com/qgx/www/mapper/ChoiceMapper.xml"></mapper>
+    </mappers>
+
+    
+    <!--<environments default="test">
+    <environment id="">
+        <transactionManager type=""></transactionManager>
+        <dataSource type=""></dataSource>
+    </environment>
+</environments>
+    <environments default="produce">
+        <environment id="">
+            <transactionManager type=""></transactionManager>
+            <dataSource type=""></dataSource>
+        </environment>
+    </environments>-->
+
+</configuration>

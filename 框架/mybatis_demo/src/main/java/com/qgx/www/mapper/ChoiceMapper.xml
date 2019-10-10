@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--定义命名空间-->
+<mapper namespace="com.qgx.www.mapper.ChoiceMapper">
+    <!--二级缓存
+      eviction="回收策略"
+      flushInterval="刷新的间隔时间ms"
+      size="存储的对象数量"
+      readOnly="是否只读"
+    -->
+    <cache eviction="FIFO" flushInterval="5000" size="512" readOnly="true"></cache>
+
+    <!--id：属性等价于接口中的方法名-->
+    <!--映射文件中的占位符等价于jdbc中sql的占位符 ？,有2种：
+      #{}:以字符串形式输出自动加引号
+      ${}:直接原样输出内容不带引号
+    -->
+    <!--传入参数：
+      parameterType：基本类型(int,double...)或引用类型(java.lang.String,com.qgx.www.entity.Choice)
+      parameterMap：一般单个实体类的属性无法覆盖所有传入参数时，使用Map集合
+    -->
+    <!--输出结果：(使用在查询中)
+      resultType:接收数据库中查询的数据，当数据库中的表字段和实体类属性一致情况下使用
+      resultMap:接收数据库中查询的数据，当数据库中的表字段和实体类属性不一致情况下使用，选择使用映射节点resultMap的id值
+    -->
+
+    <!--不带参数查询-->
+    <select id="findAll" resultType="com.qgx.www.entity.Choice">
+        SELECT * FROM choice
+    </select>
+    <!--1个参数查询-->
+    <select id="findChoiceById" parameterType="int" resultType="com.qgx.www.entity.Choice">
+        SELECT * FROM choice WHERE id=#{no}
+    </select>
+    <!--多个参数查询-->
+    <select id="findChoiceByIdAndTitle" parameterType="com.qgx.www.entity.Choice" resultType="com.qgx.www.entity.Choice">
+        SELECT * FROM choice WHERE id=#{id} and title=#{title}<!--传入实体类时，占位符要和实体类的属性一致-->
+    </select>
+    <!--多个参数查询：模糊查询时要用 $ -->
+    <!--<select id="findChoiceByIdAndTitle" parameterType="com.qgx.www.entity.Choice" resultType="com.qgx.www.entity.Choice">
+        SELECT * FROM choice WHERE id=#{id} and title LIKE '%${title}%'&lt;!&ndash;传入实体类时，占位符要和实体类的属性一致&ndash;&gt;
+    </select>-->
+    <!--增-->
+    <insert id="addChoice" parameterType="com.qgx.www.entity.Choice">
+        INSERT INTO choice (title,optionType) VALUES (#{title},#{optionType})
+    </insert>
+    <!--删-->
+    <delete id="delChoiceById" parameterType="int">
+        DELETE FROM choice WHERE id= #{id}
+    </delete>
+    <!--改-->
+    <update id="updateChoiceById" parameterType="com.qgx.www.entity.Choice">
+       UPDATE choice SET title = #{title} WHERE id= #{id}
+    </update>
+
+    <!--resultMap:接收数据库中查询的数据，当数据库中的表字段和实体类属性不一致情况下使用，选择使用映射节点resultMap的id值
+        配置的是映射关系
+    -->
+    <!--<resultMap id="xxx" type="com.qgx.www.entity.Choice">
+        <id column="id" property="cid" javaType="" jdbcType="" ></id>
+        <result column="title" property="ctitle" javaType="" jdbcType=""></result>
+    </resultMap>-->
+
+
+
+</mapper>

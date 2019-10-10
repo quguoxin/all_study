@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--定义命名空间-->
+<mapper namespace="com.qgx.www.mapper.InsuranceMapper">
+    <!--id：属性等价于接口中的方法名-->
+    <!--映射文件中的占位符等价于jdbc中sql的占位符 ？,有2种：
+      #{}:以字符串形式输出自动加引号
+      ${}:直接原样输出内容不带引号
+    -->
+    <!--传入参数：
+      parameterType：基本类型(int,double...)或引用类型(java.lang.String,com.qgx.www.entity.Choice)
+      parameterMap：一般单个实体类的属性无法覆盖所有传入参数时，使用Map集合
+    -->
+    <!--输出结果：(使用在查询中)
+      resultType:接收数据库中查询的数据，当数据库中的表字段和实体类属性一致情况下使用
+      resultMap:接收数据库中查询的数据，当数据库中的表字段和实体类属性不一致情况下使用，选择使用映射节点resultMap的id值
+    -->
+
+    <!-- 由名字查-->
+    <select id="findInsuranceByName" parameterType="com.qgx.www.entity.Insurance" resultType="com.qgx.www.entity.Insurance">
+        SELECT * FROM insurance WHERE userName=#{userName}
+    </select>
+    <!--由工号查-->
+    <select id="findInsuranceByJobNum" parameterType="com.qgx.www.entity.Insurance" resultType="com.qgx.www.entity.Insurance">
+        SELECT * FROM insurance WHERE userJobNum=#{userJobNum}
+    </select>
+    <!--由证件号查-->
+    <select id="findInsuranceByPapersNo" parameterType="com.qgx.www.entity.Insurance" resultType="com.qgx.www.entity.Insurance">
+        SELECT * FROM insurance WHERE papersNo=#{papersNo}
+    </select>
+    <!--由证件类型查-->
+    <select id="findInsuranceByPapersType" parameterType="com.qgx.www.entity.Insurance" resultType="com.qgx.www.entity.Insurance">
+        SELECT * FROM insurance WHERE papersType=#{papersType}
+    </select>
+    <!--增-->
+    <insert id="addInsurance" parameterType="com.qgx.www.entity.Insurance">
+        INSERT INTO insurance (userName,userJobNum,papersNo,papersType) VALUES (#{userName},#{userJobNum},#{papersNo},#{papersType})
+    </insert>
+
+    <!--自定义一个结果类型映射，表名和实体类名映射，表字段和实体类属性映射-->
+    <resultMap id="InsuranceResultMap" type="com.qgx.www.entity.Insurance">
+        <!--属性和表字段映射-->
+        <id property="id" column="id"></id>
+        <id property="userName" column="user_Name"></id>
+        <id property="userJobNum" column="user_JobNum"></id>
+        <id property="papersNo" column="papers_No"></id>
+        <id property="papersType" column="papers_Type"></id>
+    </resultMap>
+
+    <!--需要重复使用的sql语句段-->
+    <sql id="InsuranceColum">id,userName,userJobNum,papersNo,papersType</sql>
+
+    <!--多条件查询：这里用1=1恒成立解决了如果条件为空时where不需要的情况-->
+    <select id="findByParams1" parameterType="com.qgx.www.entity.Insurance" resultType="com.qgx.www.entity.Insurance">
+        SELECT <include refid="InsuranceColum" /> FROM insurance i where 1=1
+        <if test="userName!=null">AND i.userName = #{userName} </if>
+        <if test="userJobNum!=null">AND i.userJobNum = #{userJobNum} </if>
+        <if test="papersNo!=null">AND i.papersNo = #{papersNo} </if>
+        <if test="papersType!=null">AND i.papersType = #{papersType} </if>
+    </select>
+    <!--where：知道只有一个以上的if条件有值的情况才去插入where子句.可能最后的内容是and或or开头，那么使用where可以自动知道如何将他们去除-->
+    <select id="findByParams2" parameterType="com.qgx.www.entity.Insurance" resultType="com.qgx.www.entity.Insurance">
+        SELECT <include refid="InsuranceColum" /> FROM insurance i
+        <where>
+            <if test="userName!=null">AND i.userName = #{userName} </if>
+            <if test="userJobNum!=null">AND i.userJobNum = #{userJobNum} </if>
+            <if test="papersNo!=null">AND i.papersNo = #{papersNo} </if>
+            <if test="papersType!=null">AND i.papersType = #{papersType} </if>
+        </where>
+    </select>
+    <!--choose(when,otherwise):等价于java的多重if-->
+    <select id="findByParams3" parameterType="com.qgx.www.entity.Insurance" resultType="com.qgx.www.entity.Insurance">
+        SELECT * FROM insurance i
+        <choose>
+            <when test="userName!=null">WHERE i.userName = #{userName} </when>
+            <when test="userJobNum!=null">WHERE i.userJobNum = #{userJobNum} </when>
+            <when test="papersNo!=null">WHERE i.papersNo = #{papersNo} </when>
+            <when test="papersType!=null">WHERE i.papersType = #{papersType} </when>
+        </choose>
+    </select>
+
+    <!--choose(when,otherwise):等价于java的多重if-->
+    <select id="findByParams4" parameterType="map" resultType="com.qgx.www.entity.Insurance">
+        SELECT <include refid="InsuranceColum" /> FROM insurance i
+        <choose>
+            <when test="searchBy=='userName'">WHERE i.userName = #{paramsValue} </when>
+            <when test="searchBy=='userJobNum'">WHERE i.userJobNum = #{paramsValue} </when>
+            <when test="searchBy=='papersNo'">WHERE i.papersNo = #{paramsValue} </when>
+            <otherwise>WHERE i.papersType = #{paramsValue} </otherwise>
+        </choose>
+    </select>
+    <!--foreach-->
+    <select id="findByParams5" parameterType="map" resultType="com.qgx.www.entity.Insurance">
+        SELECT <include refid="InsuranceColum" /> FROM insurance i
+        <where>
+            <if test="userName!=null">AND i.userName LIKE #{userName}</if>
+            <if test="list_id!=null">
+                AND id in 
+                <foreach collection="list_id" item="id" open="(" separator="," close=")">
+                    #{id}
+                </foreach>
+            </if>
+        </where>
+    </select>
+    <!--trim1 去前缀-->
+    <select id="findByParams6" parameterType="com.qgx.www.entity.Insurance" resultType="com.qgx.www.entity.Insurance">
+        SELECT <include refid="InsuranceColum" /> FROM insurance i
+        <trim prefix="where" prefixOverrides="and|or">
+            <if test="userName!=null">AND i.userName = #{userName} </if>
+            <if test="userJobNum!=null">AND i.userJobNum = #{userJobNum} </if>
+            <if test="papersNo!=null">AND i.papersNo = #{papersNo} </if>
+            <if test="papersType!=null">AND i.papersType = #{papersType} </if>
+        </trim>
+    </select>
+    <!--trim2 去后缀-->
+    <update id="findByParams7" parameterType="com.qgx.www.entity.Insurance" >
+        UPDATE insurance i
+        <trim prefix="set" suffixOverrides=",">
+            <if test="userName!=null"> i.userName = #{userName}, </if>
+            <if test="userJobNum!=null"> i.userJobNum = #{userJobNum}, </if>
+        </trim>
+        <trim prefix="where" prefixOverrides="and|or">
+            <if test="id!=0">AND i.id = #{id} </if>
+        </trim>
+    </update>
+</mapper>
