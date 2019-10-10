@@ -1,0 +1,6 @@
+<!ELEMENT tlc_struts (actions)>
+<!ELEMENT actions (action*)>
+<!ELEMENT action (result*)>
+<!ELEMENT result (#PCDATA)>
+<!ATTLIST action name CDATA #REQUIRED class CDATA #REQUIRED>
+<!ATTLIST result name CDATA #REQUIRED redirect (true|false) "false">

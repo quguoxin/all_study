@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <constant name="struts.i18n.encoding" value="UTF-8"></constant>
+    <!--设置上传文件最大值-->
+    <constant name="struts.multipart.maxSize" value="2097152000"></constant>
+    <!--包，类似java的那个package，用于区分分类，如果需要使用struts提供的基本功能必须继承struts-default包,默认加装一套拦截器-->
+    <package name="common" namespace="/" extends="json-default">
+        <interceptors>
+            <!--声明需要使用的拦截器，不分先后顺序-->
+            <interceptor name="interceptor1" class="com.qgx.www.interceptor.Interceptor1"></interceptor>
+            <interceptor name="interceptor2" class="com.qgx.www.interceptor.Interceptor2"></interceptor>
+            <interceptor name="interceptor3" class="com.qgx.www.interceptor.Interceptor3"></interceptor>
+            <interceptor name="interceptor4" class="com.qgx.www.interceptor.Interceptor4"></interceptor>
+
+            <!--按顺序叠加组合成拦截器栈-->
+            <interceptor-stack name="myStack1">
+                <interceptor-ref name="jsonValidationWorkflowStack"></interceptor-ref>
+                <interceptor-ref name="interceptor1"></interceptor-ref>
+                <interceptor-ref name="interceptor2"></interceptor-ref>
+                <interceptor-ref name="interceptor4"></interceptor-ref>
+            </interceptor-stack>
+
+            <interceptor-stack name="myStack2">
+                <interceptor-ref name="jsonValidationWorkflowStack"></interceptor-ref>
+                <interceptor-ref name="interceptor4"></interceptor-ref>
+                <interceptor-ref name="interceptor2"></interceptor-ref>
+                <interceptor-ref name="interceptor1"></interceptor-ref>
+                <interceptor-ref name="interceptor3"></interceptor-ref>
+            </interceptor-stack>
+        </interceptors>
+        <!--默认调用自定义拦截器-->
+        <!--<default-interceptor-ref name="myStack2"></default-interceptor-ref>-->
+
+
+        <action name="hello" class="com.qgx.www.action.HelloAction" method="test">
+            <!--result:中name对应action方法的返回值，type表示重定向(redirect)或转发(dispatcher)默认转发-->
+            <result name="index">index.jsp</result>
+            <!--开放方法可以使用-->
+            <allowed-methods>test</allowed-methods>
+        </action>
+        <action name="login" class="com.qgx.www.action.HelloAction" method="dologin">
+            <allowed-methods>dologin</allowed-methods>
+        </action>
+    </package>
+
+    <package name="qgx" namespace="/" extends="common">
+        <!--<action name="*option" class="com.qgx.www.action.OptionAction" method="{1}"></action>-->
+        <action name="*file" class="com.qgx.www.action.FileAction" method="{1}">
+            <result name="success">{1}_success.jsp</result>
+            <result name="down" type="stream">
+                <!--文件类型 设定可以执行的文件类型-->
+                <param name="contentType">application/octet-stream</param>
+                <!--文件类型 设定可以执行的文件类型-->
+                <!--<param name="contentLength"></param>-->
+                <!--以附件形式下载 提供下载的文件名称-->
+                <param name="contentDisposition">attachment;filename=${filename2}</param>
+                <!--提供读取流的属性名 需要有属性的get方法-->
+                <param name="inputName">is</param>
+                <!--缓冲区大小-->
+                <param name="bufferSize">1000000</param>
+            </result>
+        </action>
+    </package>
+
+    <package name="vote" namespace="/" extends="common">
+        <action name="vote*" class="com.qgx.www.action.VoteAction" method="{1}">
+            <result name="success_tongji" type="json">
+                <param name="root">responseBody</param>
+            </result>
+            <!--<interceptor-ref name="myStack2"></interceptor-ref>-->
+            <result name="success_toupiao">vote_success.jsp</result>
+            <result name="success_add">voteList.jsp</result>
+            <result name="success_vote">vote.jsp</result>
+
+            <result name="success_show" type="json">
+                <!--返回的根属性对象名，提供get方法-->
+                <param name="root">bootPageBean</param>
+                <!--是否清除空属性-->
+                <!--<param name="excludeNullProperties">false</param>-->
+            </result>
+        </action>
+    </package>
+
+</struts>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE tlc_struts SYSTEM "D:\struts2_qgx_demo\src\main\resources\tlc_struts.dtd">
+<tlc_struts>
+    <actions>
+        <action name="login" class="com.qgx.www.action.LoginAction">
+            <result name="success">login_success.jsp</result>
+            <result name="fail">error.jsp</result>
+        </action>
+        <action name="reg" class="com.qgx.www.action.RegAction">
+            <result name="success">reg_success.jsp</result>
+            <result name="fail">error.jsp</result>
+        </action>
+    </actions>
+</tlc_struts>

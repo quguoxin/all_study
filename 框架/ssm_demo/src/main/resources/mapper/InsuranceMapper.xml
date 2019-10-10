@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--定义命名空间-->
+<mapper namespace="com.qgx.www.mapper.InsuranceMapper">
+    <!--id：属性等价于接口中的方法名-->
+    <!--映射文件中的占位符等价于jdbc中sql的占位符 ？,有2种：
+      #{}:以字符串形式输出自动加引号
+      ${}:直接原样输出内容不带引号
+    -->
+    <!--传入参数：
+      parameterType：基本类型(int,double...)或引用类型(java.lang.String,com.qgx.www.entity.Choice)
+      parameterMap：一般单个实体类的属性无法覆盖所有传入参数时，使用Map集合
+    -->
+    <!--输出结果：(使用在查询中)
+      resultType:接收数据库中查询的数据，当数据库中的表字段和实体类属性一致情况下使用
+      resultMap:接收数据库中查询的数据，当数据库中的表字段和实体类属性不一致情况下使用，选择使用映射节点resultMap的id值
+    -->
+
+    <!--自定义一个结果类型映射，表名和实体类名映射，表字段和实体类属性映射-->
+    <resultMap id="InsuranceResultMap" type="com.qgx.www.entity.Insurance">
+        <!--属性和表字段映射-->
+        <id property="id" column="id"></id>
+        <id property="userName" column="user_Name"></id>
+        <id property="userJobNum" column="user_JobNum"></id>
+        <id property="papersNo" column="papers_No"></id>
+        <id property="papersType" column="papers_Type"></id>
+    </resultMap>
+
+    <!--需要重复使用的sql语句段-->
+    <sql id="InsuranceColum">id,userName,userJobNum,papersNo,papersType</sql>
+
+    <!--多条件查询-->
+    <select id="findByParams" parameterType="map" resultType="com.qgx.www.entity.Insurance">
+        SELECT <include refid="InsuranceColum" /> FROM insurance i
+        <where>
+            <if test="insurance.userName!=null and insurance.userName!=''">AND i.userName = #{insurance.userName} </if>
+            <if test="insurance.userJobNum!=null and insurance.userJobNum!=''">AND i.userJobNum = #{insurance.userJobNum} </if>
+            <if test="insurance.papersNo!=null and insurance.papersNo!=''">AND i.papersNo = #{insurance.papersNo} </if>
+            <if test="insurance.papersType!=null and insurance.papersType!=''">AND i.papersType = #{insurance.papersType} </if>
+        </where>
+        limit #{startIndex},#{pageSize}
+    </select>
+
+    <!--总条数-->
+    <select id="findCount" parameterType="com.qgx.www.entity.Insurance" resultType="int">
+        SELECT count(1)  FROM insurance i
+        <where>
+            <if test="userName!=null and userName!=''">AND i.userName = #{userName} </if>
+            <if test="userJobNum!=null and userJobNum!=''">AND i.userJobNum = #{userJobNum} </if>
+            <if test="papersNo!=null and papersNo!=''">AND i.papersNo = #{papersNo} </if>
+            <if test="papersType!=null and papersType!=''">AND i.papersType = #{papersType} </if>
+        </where>
+        </select>
+</mapper>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context-4.3.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+       http://www.springframework.org/schema/tx
+       http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+
+
+    <!--
+            传统编程：
+            UserInfo userInfo=new UserInfo(9527,"瞿国新","男");
+            userinfo.setExtendInfo(xxxxx);
+       -->
+    <!-- 方式1：构造注入,前提是必须有构造函数,20%企业在用-->
+    <bean id="userinfo1" class="com.qgx.www.ioc.UserInfo">
+        <constructor-arg index="0" value="9527"></constructor-arg>
+        <constructor-arg index="1" value="瞿国新"></constructor-arg>
+        <constructor-arg index="2" value="男"></constructor-arg>
+    </bean>
+
+    <!--方式2：set注入,前提必须有set方法,80%企业使用 -->
+    <bean id="userinfo2" class="com.qgx.www.ioc.UserInfo">
+        <!-- 注入基本类型或字符串-->
+        <property name="username" value="张学友"></property>
+        <property name="sex" value="男"></property>
+        <!--注入对象-->
+        <property name="extendInfo" ref="extinfo"></property>
+        <!--注入集合-->
+        <property name="love">
+            <list>
+                <value>篮球</value>
+                <value>足球</value>
+            </list>
+        </property>
+    </bean>
+
+    <!--方式3：p:命名空间注入-->
+    <bean id="userinfo3" class="com.qgx.www.ioc.UserInfo" p:username="瞿大爷"  p:extendInfo-ref="extinfo">
+        <property name="id" value="8888"></property>
+        <property name="sex" value="男"></property>
+    </bean>
+    <!--用户拓展信息-->
+    <bean id="extinfo" class="com.qgx.www.ioc.ExtendInfo">
+        <property name="phone" value="15090814407"></property>
+        <property name="age" value="18"></property>
+    </bean>
+
+    <!--
+        ProxyFactory proxyFactory=new ProxyFactory();//创建一个代理工厂
+        proxyFactory.setTarget(new GreetingImpl());//设置要代理的对象
+        proxyFactory.addAdvice(new GreetingBeforeAndAfterAdvice());//添加自定义前置后置增强
+        Greeting proxyObj=(Greeting) proxyFactory.getProxy();//生产代理对象
+        proxyObj.sayHello("刘德华");
+        将以上硬编码方式改造成配置方式如下
+    -->
+    <!--有代理工厂生产的代理对象-->
+    <bean id="proxyObj" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <!--设置接口-->
+        <property name="interfaces" value="com.qgx.www.aop.Greeting"></property>
+        <!--设置要代理的对象（目标对象） -->
+        <property name="target" ref="greetingImpl"></property>
+        <!--添加自定义前置、后置增强-->
+        <property name="interceptorNames" value="greetingBeforeAndAfterAdvice"></property>
+    </bean>
+
+    <!-- bean注解扫描:读取配置了
+        @Controller：作用于控制器层
+        @Service：作用于业务层
+        @Repository：作用于数据访问层
+        @Component：通用组件
+        @Autowired：自动注入依赖对象
+        @Resource：根据名称注入依赖对象
+    -->
+    <context:component-scan base-package="
+                         com.qgx.www.dao,
+                         com.qgx.www.service,
+                         com.qgx.www.ioc,
+                         com.qgx.www.aop">
+    </context:component-scan>
+
+    <!--自动代理，默认值是false表示只代理接口（jdk代理），true可以除了接口之外代理实现类（cglib代理）-->
+    <aop:aspectj-autoproxy proxy-target-class="true"></aop:aspectj-autoproxy>
+
+    <!--数据源-->
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+        <!--参数设置-->
+    </bean>
+
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>
+
+    <tx:annotation-driven transaction-manager="transactionManager"></tx:annotation-driven>
+</beans>
